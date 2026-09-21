@@ -7,3 +7,4 @@ initCurriculumTabs();
 initGallery();
 initFaqAccordion();
 initStickyBar();
+initVisitadorCurriculum();

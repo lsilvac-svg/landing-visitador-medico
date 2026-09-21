@@ -59,6 +59,10 @@
   letter-spacing: -0.6px;
 }
 
+.section-accent {
+  color: var(--color-cyan);
+}
+
 /* Tope de 3 líneas para títulos principales: evita que copys largos
    rompan la composición mientras se define el texto final, y reparte
    las líneas de forma pareja en vez de dejar una suelta muy corta. */

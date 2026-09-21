@@ -23,10 +23,11 @@
   <link rel="stylesheet" href="css/variables.css?v=20260903-1" />
   <link rel="stylesheet" href="css/base.css?v=20260822-8" />
   <link rel="stylesheet" href="css/utilities.css?v=20260903-1" />
-  <link rel="stylesheet" href="css/header.css?v=20260903-1" />
-  <link rel="stylesheet" href="css/hero.css?v=20260903-1" />
+  <link rel="stylesheet" href="css/header.css?v=20260921-1" />
+  <link rel="stylesheet" href="css/hero.css?v=20260921-7" />
+  <link rel="stylesheet" href="css/program-profile.css?v=20260921-7" />
   <link rel="stylesheet" href="css/bento.css?v=20260822-8" />
-  <link rel="stylesheet" href="css/curriculum.css?v=20260903-1" />
+  <link rel="stylesheet" href="css/curriculum.css?v=20260921-1" />
   <link rel="stylesheet" href="css/gallery.css?v=20260903-1" />
   <link rel="stylesheet" href="css/social.css?v=20260822-9" />
   <link rel="stylesheet" href="css/testimonials.css?v=20260822-9" />
@@ -34,7 +35,6 @@
   <link rel="stylesheet" href="css/cta.css?v=20260822-8" />
   <link rel="stylesheet" href="css/footer.css?v=20260822-8" />
   <link rel="stylesheet" href="css/sticky-bar.css?v=20260822-8" />
-  <link rel="stylesheet" href="css/visitador-mobile.css" />
 </head>
 <body>
 
@@ -51,21 +51,6 @@
         <span>Inscríbete ahora</span>
         <span class="header-cta__icon" aria-hidden="true">→</span>
       </a>
-
-      <details class="mobile-menu">
-        <summary class="mobile-menu__toggle" aria-label="Abrir menú de navegación">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </summary>
-        <nav class="mobile-menu__panel" aria-label="Navegación móvil">
-          <a href="#carreras">Carreras</a>
-          <a href="#beneficios">Beneficios</a>
-          <a href="#sedes">Sedes</a>
-          <a href="#formulario">Admisión</a>
-          <a href="#nosotros">Nosotros</a>
-        </nav>
-      </details>
     </div>
   </header>
 
@@ -75,11 +60,13 @@
   <section class="hero" id="formulario">
     <div class="hero__content">
       <div class="hero__copy">
+        <p class="hero__eyebrow"><span class="hero__eyebrow-dash" aria-hidden="true"></span>Programa técnico</p>
         <h1 class="hero__title">
-          <span class="hero__title-line">Impulsa tu carrera como</span>
-          <span class="hero__title-line hero__title-accent">Visitador Médico</span>
+          <span class="hero__title-line">Conviértete en Profesional</span>
+          <span class="hero__title-line hero__title-accent">Técnico Visitador Médico</span>
         </h1>
         <span class="hero__title-rule" aria-hidden="true"></span>
+        <p class="hero__lead">Especialízate en promoción farmacéutica y atención profesional.</p>
 
         <ul class="hero__highlights">
           <li>
@@ -90,7 +77,7 @@
                 <path d="M19 8v6M16 11h6"/>
               </svg>
             </span>
-            <span>Marketing y comunicación<br />para la industria farmacéutica</span>
+            <span>Comunicación y<br />ventas en salud</span>
           </li>
           <li>
             <span class="hero__highlight-icon" aria-hidden="true">
@@ -101,7 +88,7 @@
                 <path d="m15.7 17 1 1 1.8-2"/>
               </svg>
             </span>
-            <span>Formación práctica con<br />enfoque comercial y ético</span>
+            <span>Certificación<br />profesional</span>
           </li>
           <li>
             <span class="hero__highlight-icon" aria-hidden="true">
@@ -112,7 +99,7 @@
                 <path d="M12 13.8v1.5l1 .7"/>
               </svg>
             </span>
-            <span>Duración de 6 meses<br />y horarios flexibles</span>
+            <span>Horarios<br />flexibles</span>
           </li>
         </ul>
 
@@ -124,16 +111,23 @@
             <img src="https://images.unsplash.com/photo-1706958580557-ddc88a349a16?w=48&h=48&fit=crop&auto=format&q=85" alt="" loading="lazy" />
           </div>
           <div class="hero__proof-copy">
-            <!-- <div class="hero__rating">
-              <span class="hero__rating-stars" aria-label="5 estrellas">★★★★★</span>
-              <span class="hero__rating-score">4.9/5</span>
-            </div> -->
-            <div class="hero__rating-count">+1,200 egresados laborando actualmente</div>
+            <p class="hero__rating-count"><strong>+1,200 egresados</strong> impulsando la salud en todo el Perú</p>
           </div>
         </div>
       </div>
 
       <figure class="hero__visual" aria-label="Profesional de Visitador Médico">
+        <svg class="hero__visual-deco hero__visual-deco--molecule" viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M60 20 L30 55 M60 20 L95 40 M60 20 L60 60" stroke="#079e99" stroke-width="2.5" opacity=".45" />
+          <circle cx="60" cy="20" r="9" fill="#079e99" opacity=".55" />
+          <circle cx="30" cy="55" r="6" fill="#0bc4bd" opacity=".55" />
+          <circle cx="95" cy="40" r="7" fill="#0bc4bd" opacity=".55" />
+          <circle cx="60" cy="60" r="5" fill="#079e99" opacity=".55" />
+        </svg>
+        <svg class="hero__visual-deco hero__visual-deco--pill" viewBox="0 0 90 46" aria-hidden="true">
+          <rect x="2" y="2" width="86" height="42" rx="21" fill="none" stroke="#079e99" stroke-width="2.5" opacity=".4" />
+          <path d="M45 2 V44" stroke="#079e99" stroke-width="2.5" opacity=".4" />
+        </svg>
         <img
           src="./img/visitadora-medica.png"
           alt="Profesional del programa Visitador Médico con material de presentación"
@@ -141,14 +135,21 @@
           height="488"
           fetchpriority="high"
         />
+        <p class="hero__visual-caption">Más conocimiento,<br />más oportunidades</p>
       </figure>
 
       <div class="hero__form-card">
+        <div class="hero__form-badge">
+          <span class="hero__form-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>
+          </span>
+          <span>Da el siguiente paso hacia tu futuro</span>
+        </div>
         <div class="hero__form-header">
-          <div class="hero__form-title">Solicita información<br />y matrícula</div>
+          <div class="hero__form-title">Solicita información<br class="hero__form-title-break" /> y matrícula</div>
           <div class="hero__form-subtitle">
             <span class="hero__discount-icon" aria-hidden="true">%</span>
-            <span>Recibe información de<br /><strong>inicio, horarios y beneficios</strong></span>
+            <span>Hasta 20% de descuento<br />para primeros inscritos</span>
           </div>
         </div>
 
@@ -166,44 +167,162 @@
               <label class="form-label" for="hero-email">Correo electrónico</label>
               <input class="form-input" type="email" id="hero-email" name="correo" placeholder="correo@ejemplo.com" required autocomplete="email" inputmode="email" />
             </div>
-          </div>
-
-          <div class="form-turno">
-            <label class="form-label" for="hero-turno">Turno de preferencia</label>
-            <select class="form-select" id="hero-turno" name="turno">
-              <option value="">Selecciona un turno</option>
-              <option value="manana">Mañana (7am – 1pm)</option>
-              <option value="tarde">Tarde (1pm – 7pm)</option>
-              <option value="noche">Noche (7pm – 11pm)</option>
-            </select>
-          </div>
-
-          <div class="form-turno">
-            <label class="form-label" for="hero-enteraste">¿Cómo te enteraste?</label>
-            <select class="form-select" id="hero-enteraste" name="enteraste">
-              <option value="">Selecciona una opción</option>
-              <option value="facebook">Facebook</option>
-              <option value="instagram">Instagram</option>
-              <option value="tiktok">TikTok</option>
-              <option value="linkedin">LinkedIn</option>
-              <option value="google">Google</option>
-              <option value="radio">Radio</option>
-              <option value="familiares">Familiares/Conocidos</option>
-              <option value="volanteo">Volanteo</option>
-            </select>
+            <div class="form-field">
+              <label class="form-label" for="hero-turno">Turno de preferencia</label>
+              <select class="form-select" id="hero-turno" name="turno">
+                <option value="">Selecciona un turno</option>
+                <option value="manana">Mañana (7am – 1pm)</option>
+                <option value="tarde">Tarde (1pm – 7pm)</option>
+                <option value="noche">Noche (7pm – 11pm)</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="hero-enteraste">¿Cómo te enteraste?</label>
+              <select class="form-select" id="hero-enteraste" name="enteraste">
+                <option value="">Selecciona una opción</option>
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="tiktok">TikTok</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="google">Google</option>
+                <option value="radio">Radio</option>
+                <option value="familiares">Familiares/Conocidos</option>
+                <option value="volanteo">Volanteo</option>
+              </select>
+            </div>
           </div>
 
           <button type="submit" class="btn btn-orange hero__submit">
-            <span>Quiero conocer el<br class="hero__submit-break" /> programa</span>
+            <span>Quiero conocer el programa</span>
             <span class="hero__submit-arrow" aria-hidden="true">→</span>
           </button>
 
           <p class="form-privacy">
             <svg class="icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
-            Datos protegidos. Sin spam.<br />Respuesta en &lt;2 horas.
+            Tus datos están protegidos y serán utilizados<br />solo para brindarte información sobre el programa.
           </p>
         </form>
       </div>
+    </div>
+    <div class="hero__stats" aria-label="Indicadores institucionales">
+      <div>
+        <svg class="hero__stats-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>
+        <div><strong>+25 años</strong><span>formando profesionales</span></div>
+      </div>
+      <div>
+        <svg class="hero__stats-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div><strong>+1,200</strong><span>egresados en todo el Perú</span></div>
+      </div>
+      <div>
+        <svg class="hero__stats-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M7 21V10M12 21V6M17 21v-8"/></svg>
+        <div><strong>Alianzas</strong><span>en la industria farmacéutica</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section program-profile" id="perfil">
+    <div class="container program-profile__grid">
+      <div class="program-profile__panel">
+        <div class="program-profile__intro">
+          <p class="program-profile__eyebrow"><span>PERFIL PROFESIONAL</span><span class="program-profile__eyebrow-rule" aria-hidden="true"></span></p>
+          <h2 class="program-profile__title">
+            <span class="program-profile__title-line">Prepárate para</span>
+            <span class="program-profile__title-line program-profile__title-accent">conectar salud,</span>
+            <span class="program-profile__title-line program-profile__title-accent">conocimiento y resultados</span>
+          </h2>
+
+          <ul class="program-profile__indicators">
+            <li>
+              <span class="program-profile__indicator-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5 12 4l10 4.5-10 4.5-10-4.5Z"/><path d="M6 10.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-5.5"/><path d="M22 8.5v6"/></svg>
+              </span>
+              <span>6 meses<br />de formación</span>
+            </li>
+            <li>
+              <span class="program-profile__indicator-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="10" rx="1.5"/><path d="M6 7.5h8M6 10.5h5"/><circle cx="17.5" cy="16" r="3.2"/><path d="m16 18.6-.7 3 2.2-1.3 2.2 1.3-.7-3"/></svg>
+              </span>
+              <span>Título a Nombre<br />de la Nación</span>
+            </li>
+            <li>
+              <span class="program-profile__indicator-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="19" height="10" rx="5"/><path d="M12 7v10"/></svg>
+              </span>
+              <span>Enfoque<br />farmacéutico</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="program-profile__copy-card">
+          <svg class="program-profile__quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.17 6C4.87 7.61 3.5 9.98 3.5 12.62c0 2.66 1.8 4.38 4.02 4.38 1.9 0 3.36-1.46 3.36-3.34 0-1.77-1.24-3.02-2.86-3.11-.2-.01-.4 0-.58.03.3-1.5 1.48-2.86 3.02-3.72L7.17 6Zm9.31 0c-2.3 1.61-3.67 3.98-3.67 6.62 0 2.66 1.8 4.38 4.02 4.38 1.9 0 3.36-1.46 3.36-3.34 0-1.77-1.24-3.02-2.86-3.11-.2-.01-.4 0-.58.03.3-1.5 1.48-2.86 3.02-3.72L16.48 6Z"/></svg>
+          <div class="program-profile__copy">
+            <p>Al finalizar el programa de <strong>Visitador Médico y Ejecutivo Farmacéutico</strong>, podrás desenvolverte en la industria farmacéutica realizando visitas profesionales, identificando y gestionando clientes potenciales.</p>
+            <p>Desarrollarás la seguridad para resolver dudas, cerrar ventas y fidelizar clientes con ética, profesionalismo y una actitud positiva.</p>
+          </div>
+        </div>
+      </div>
+
+      <figure class="program-profile__visual" aria-hidden="true">
+        <svg class="program-profile__visual-deco" viewBox="0 0 90 46" aria-hidden="true">
+          <rect x="2" y="2" width="86" height="42" rx="21" fill="none" stroke="#079e99" stroke-width="2.5" opacity=".4" />
+          <path d="M45 2 V44" stroke="#079e99" stroke-width="2.5" opacity=".4" />
+        </svg>
+        <img src="./img/img_l_2.png" alt="Profesional del programa Visitador Médico sonriendo" width="930" height="1028" loading="lazy" />
+        <p class="program-profile__visual-caption">Más salud<br />para más<br />personas</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section career-details" id="campo-laboral">
+    <div class="container">
+      <div class="career-details__head">
+        <div class="career-details__heading-group">
+          <p class="career-details__eyebrow"><span class="career-details__eyebrow-rule" aria-hidden="true"></span><span>INFORMACIÓN DEL PROGRAMA</span></p>
+          <h2 class="career-details__title">Todo para avanzar con confianza</h2>
+        </div>
+        <p class="career-details__script career-details__script--top">
+          <span class="career-details__script-rule" aria-hidden="true"></span>
+          <span>Formación hoy,<br />más oportunidades mañana</span>
+        </p>
+      </div>
+
+      <div class="career-details__grid">
+        <article class="career-details__card career-details__card--featured">
+          <div class="career-details__card-top">
+            <span class="career-details__number">01</span>
+            <span class="career-details__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/><path d="M3 12.5h18"/><path d="M10.5 12v1.6h3V12"/></svg>
+            </span>
+          </div>
+          <h3>Campo laboral</h3>
+          <p>Proyéctate en la industria farmacéutica, representando marcas de laboratorios o farmacias, visitando consultorios médicos de distintas especialidades y en compañías farmacéuticas.</p>
+          <span class="career-details__arrow" aria-hidden="true">→</span>
+        </article>
+        <article class="career-details__card">
+          <div class="career-details__card-top">
+            <span class="career-details__number">02</span>
+            <span class="career-details__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3.5h6a1 1 0 0 1 1 1V6H8V4.5a1 1 0 0 1 1-1Z"/><path d="M8.5 11h7M8.5 14.5h7M8.5 18h4.5"/></svg>
+            </span>
+          </div>
+          <h3>Requisitos</h3>
+          <p>Copia de DNI o carné de extranjería y copia de recibo de agua, luz o teléfono. Con estos requisitos puedes realizar tu preinscripción.</p>
+          <span class="career-details__arrow" aria-hidden="true">→</span>
+        </article>
+        <article class="career-details__card">
+          <div class="career-details__card-top">
+            <span class="career-details__number">03</span>
+            <span class="career-details__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.7 14c2.4.2 4.3 1.9 4.3 4.4"/></svg>
+            </span>
+          </div>
+          <h3>Beneficios IESRP</h3>
+          <p>Instituto licenciado por el Ministerio de Educación, docentes calificados, laboratorios modernos, convenios con clínicas y hospitales, bolsa de trabajo, conferencias magistrales y formación para empleabilidad y emprendimiento.</p>
+          <span class="career-details__arrow" aria-hidden="true">→</span>
+        </article>
+      </div>
+
+      <p class="career-details__script career-details__script--bottom">Conocimiento<br />que genera bienestar</p>
     </div>
   </section>
 
@@ -293,7 +412,7 @@
   <!-- ============================================================
        MALLA CURRICULAR — VISITADOR MÉDICO
        ============================================================ -->
-  <section class="section curriculum" id="carreras">
+  <section class="section curriculum legacy-curriculum" aria-hidden="true">
     <div class="container">
       <div class="curriculum__intro">
         <p class="badge section-badge">MALLA CURRICULAR · VISITADOR MÉDICO</p>
@@ -472,6 +591,32 @@
     </div>
   </section>
 
+  <section class="section official-curriculum" id="carreras">
+    <div class="container">
+      <p class="badge section-badge">MALLA CURRICULAR OFICIAL</p>
+      <h2 class="section-heading">Cuatro módulos para dominar la <span class="section-accent">visita médica profesional</span></h2>
+      <p class="official-curriculum__intro">Contenido publicado para el programa de Visitador Médico y Ejecutivo Farmacéutico.</p>
+      <div class="official-curriculum__accordion legacy-official-curriculum">
+        <details open><summary><span>01</span><strong>Marketing comercial</strong><small>Módulo I</small></summary><ul><li>Marketing comercial: definiciones, teorías, evolución, visión y objetivos.</li><li>Las 4 P, estrategias, precio, productos, servicios y marcas.</li><li>Mercados objetivos, posicionamiento y comportamiento del consumidor.</li><li>Introducción a la venta, cliente, comunicación comercial y asertividad.</li><li>Plan de marketing, merchandising, ética y responsabilidad social.</li></ul></details>
+        <details><summary><span>02</span><strong>Ciencias médicas</strong><small>Módulo II</small></summary><ul><li>Anatomía humana, fisiología general, homeostasis y tejidos.</li><li>Farmacología, origen de medicamentos, farmacocinética y farmacodinamia.</li><li>Formas farmacéuticas, posología, RAM e interacciones farmacológicas.</li><li>Infecciones bacterianas y virales; enfermedades neoplásicas.</li><li>Patologías y terapias farmacológicas: gastrointestinales, cardiovasculares, respiratorias, urinarias y endocrinas.</li></ul></details>
+        <details><summary><span>03</span><strong>Marketing farmacéutico</strong><small>Módulo III</small></summary><ul><li>Fundamentos y características del marketing farmacéutico.</li><li>Certificación de calidad de medicamentos y propiedad industrial.</li><li>Segmentación del mercado farmacéutico y representación profesional.</li><li>Visita tipo, beneficios de producto, técnicas de sondeo y cierre.</li><li>Clínica de ventas, pasantía y promoción en clínicas, hospitales y farmacias.</li></ul></details>
+        <details><summary><span>04</span><strong>Comunicación efectiva</strong><small>Módulo IV</small></summary><ul><li>Comunicación verbal y no verbal; lenguaje, oratoria y discursos.</li><li>Asertividad, escucha activa, inteligencia emocional y autoestima.</li><li>Expresión en público, movimiento, mirada, postura y exposición.</li><li>Negociación, liderazgo, manejo de conflictos y resiliencia.</li><li>Entrevista, relaciones humanas y manejo del estrés laboral.</li></ul></details>
+      </div>
+      <div class="vm-curriculum" data-vm-curriculum>
+        <div class="vm-curriculum__tabs" role="tablist" aria-label="Módulos de Visitador Médico">
+          <button class="is-active" role="tab" aria-selected="true" aria-controls="vm-module-1" data-vm-module="1"><b>01</b><span>Marketing<br>comercial</span></button>
+          <button role="tab" aria-selected="false" aria-controls="vm-module-2" data-vm-module="2"><b>02</b><span>Ciencias<br>médicas</span></button>
+          <button role="tab" aria-selected="false" aria-controls="vm-module-3" data-vm-module="3"><b>03</b><span>Marketing<br>farmacéutico</span></button>
+          <button role="tab" aria-selected="false" aria-controls="vm-module-4" data-vm-module="4"><b>04</b><span>Comunicación<br>efectiva</span></button>
+        </div>
+        <article class="vm-curriculum__panel is-active" id="vm-module-1" role="tabpanel"><header><span>Módulo I</span><h3>Marketing comercial</h3><p>Construye una mirada estratégica sobre mercado, productos, clientes y ventas.</p></header><ul><li>Fundamentos, evolución, visión y objetivos del marketing comercial.</li><li>Las 4 P, estrategias, precio, productos, servicios y marcas.</li><li>Mercados objetivos, posicionamiento y comportamiento del consumidor.</li><li>Comunicación comercial, asertividad y experiencia del cliente.</li><li>Plan de marketing, merchandising, ética y responsabilidad social.</li></ul></article>
+        <article class="vm-curriculum__panel" id="vm-module-2" role="tabpanel" hidden><header><span>Módulo II</span><h3>Ciencias médicas</h3><p>Conoce las bases científicas que respaldan una visita médica responsable.</p></header><ul><li>Anatomía humana, fisiología general, homeostasis y tejidos.</li><li>Farmacología, origen de medicamentos, farmacocinética y farmacodinamia.</li><li>Formas farmacéuticas, posología, RAM e interacciones farmacológicas.</li><li>Infecciones bacterianas y virales; enfermedades neoplásicas.</li><li>Patologías y terapias farmacológicas de sistemas clave.</li></ul></article>
+        <article class="vm-curriculum__panel" id="vm-module-3" role="tabpanel" hidden><header><span>Módulo III</span><h3>Marketing farmacéutico</h3><p>Transforma conocimiento de producto en una visita útil y profesional.</p></header><ul><li>Fundamentos y características del marketing farmacéutico.</li><li>Calidad de medicamentos, propiedad industrial y segmentación.</li><li>El representante profesional y los estilos del comportamiento médico.</li><li>Visita tipo, sondeo, escucha, beneficios de producto y cierre.</li><li>Clínica de ventas, pasantía y promoción en salud.</li></ul></article>
+        <article class="vm-curriculum__panel" id="vm-module-4" role="tabpanel" hidden><header><span>Módulo IV</span><h3>Comunicación efectiva</h3><p>Fortalece tu presencia, negociación y capacidad de relacionamiento.</p></header><ul><li>Comunicación verbal, no verbal, lenguaje, oratoria y discursos.</li><li>Asertividad, escucha activa, inteligencia emocional y autoestima.</li><li>Expresión en público, postura, mirada, movimiento y exposición.</li><li>Negociación, liderazgo, manejo de conflictos y resiliencia.</li><li>Entrevista, relaciones humanas y manejo del estrés laboral.</li></ul></article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================================
        GALERÍA
        ============================================================ -->
@@ -488,14 +633,14 @@
       </div>
 
       <div class="gallery__grid">
-        <button type="button" class="gallery__item" data-full="https://images.unsplash.com/photo-1783519890730-3436fd0bf965?w=1200&h=800&fit=crop&auto=format&q=85" data-caption="Práctica de Simulación RCP — Sede Ate">
-          <img src="https://images.unsplash.com/photo-1783519890730-3436fd0bf965?w=520&h=390&fit=crop&auto=format&q=85" alt="Práctica de Simulación RCP — Sede Ate" loading="lazy" />
+        <button type="button" class="gallery__item" data-full="https://images.unsplash.com/photo-1783519890730-3436fd0bf965?w=1200&h=800&fit=crop&auto=format&q=85" data-caption="Comunicación profesional en salud — Sede Ate">
+          <img src="https://images.unsplash.com/photo-1783519890730-3436fd0bf965?w=520&h=390&fit=crop&auto=format&q=85" alt="Comunicación profesional en salud — Sede Ate" loading="lazy" />
           <div class="gallery__item-overlay"></div>
           <p class="gallery__item-caption">Comunicación profesional en salud — Sede Ate</p>
         </button>
 
-        <button type="button" class="gallery__item" data-full="https://images.unsplash.com/photo-1579154491915-611e891d3a5b?w=1200&h=800&fit=crop&auto=format&q=85" data-caption="Técnicas Quirúrgicas Asistidas — Sede San Isidro">
-          <img src="https://images.unsplash.com/photo-1579154491915-611e891d3a5b?w=520&h=390&fit=crop&auto=format&q=85" alt="Técnicas Quirúrgicas Asistidas — Sede San Isidro" loading="lazy" />
+        <button type="button" class="gallery__item" data-full="https://images.unsplash.com/photo-1579154491915-611e891d3a5b?w=1200&h=800&fit=crop&auto=format&q=85" data-caption="Taller de presentación comercial — Sede San Isidro">
+          <img src="https://images.unsplash.com/photo-1579154491915-611e891d3a5b?w=520&h=390&fit=crop&auto=format&q=85" alt="Taller de presentación comercial — Sede San Isidro" loading="lazy" />
           <div class="gallery__item-overlay"></div>
           <p class="gallery__item-caption">Taller de presentación comercial — Sede San Isidro</p>
         </button>
@@ -512,8 +657,8 @@
           <p class="gallery__item-caption">Cuidados Hospitalarios — Simulación Real</p>
         </button>
 
-        <button type="button" class="gallery__item" data-full="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=1200&h=800&fit=crop&auto=format&q=85" data-caption="Laboratorio de Bioseguridad — Sede Ate">
-          <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=520&h=390&fit=crop&auto=format&q=85" alt="Laboratorio de Bioseguridad — Sede Ate" loading="lazy" />
+        <button type="button" class="gallery__item" data-full="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=1200&h=800&fit=crop&auto=format&q=85" data-caption="Habilidades para la industria farmacéutica — Sede Ate">
+          <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=520&h=390&fit=crop&auto=format&q=85" alt="Habilidades para la industria farmacéutica — Sede Ate" loading="lazy" />
           <div class="gallery__item-overlay"></div>
           <p class="gallery__item-caption">Trabajo colaborativo y empleabilidad</p>
         </button>
@@ -643,7 +788,7 @@
   <section class="section testimonials" id="nosotros">
     <div class="container">
       <div class="partners">
-        <h2 class="partners__title">Nuestras <span class="section-accent">alianzas</span></h2>
+        <div><p class="badge section-badge">CONVENIOS</p><h2 class="partners__title">Instituciones que amplían tu <span class="section-accent">experiencia profesional</span></h2><p>El programa publica convenios con clínicas, hospitales, farmacias e instituciones de salud.</p></div>
 
         <div class="partners-marquee" role="region" aria-label="Nuestras alianzas institucionales">
           <div class="partners-marquee__track">
@@ -687,14 +832,14 @@
       </div>
 
       <div class="reels__track" aria-label="Reels de egresados">
-        <a class="reel-card" href="https://www.tiktok.com/@iesrp" target="_blank" rel="noopener noreferrer" aria-label="Ver reel: Mi experiencia en prácticas clínicas">
-          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=520&h=820&fit=crop&auto=format&q=85" alt="Egresada de Enfermería compartiendo su experiencia" loading="lazy" />
+        <a class="reel-card" href="https://www.tiktok.com/@iesrp" target="_blank" rel="noopener noreferrer" aria-label="Ver reel: Preparación para la visita médica">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=520&h=820&fit=crop&auto=format&q=85" alt="Estudiante compartiendo su experiencia profesional" loading="lazy" />
           <span class="reel-card__play" aria-hidden="true">▶</span>
           <span class="reel-card__badge">REEL</span>
-          <div class="reel-card__overlay"><strong>Mi experiencia en prácticas clínicas</strong><span>Historias IESRP</span></div>
+          <div class="reel-card__overlay"><strong>Preparación para la visita médica</strong><span>Historias IESRP</span></div>
         </a>
         <a class="reel-card" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Ver reel: Así fue mi primer día de prácticas">
-          <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=520&h=820&fit=crop&auto=format&q=85" alt="Estudiante de Enfermería durante prácticas" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=520&h=820&fit=crop&auto=format&q=85" alt="Estudiante en formación profesional" loading="lazy" />
           <span class="reel-card__play" aria-hidden="true">▶</span>
           <span class="reel-card__badge">REEL</span>
           <div class="reel-card__overlay"><strong>Así fue mi primer día de prácticas</strong><span>Vida estudiantil</span></div>
@@ -729,31 +874,31 @@
       <div class="faq-list">
         <div class="faq-item">
           <button type="button" class="faq-item__question" aria-expanded="false">
-            <span>¿Cuántas vacantes hay por ciclo y cuándo cierran?</span>
+            <span>¿Cuándo inicia y cuánto dura el programa?</span>
             <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6,9 12,15 18,9"/></svg>
           </button>
           <div class="faq-item__answer">
-            <p>Contamos con vacantes limitadas (máximo 30 por turno). Las inscripciones cierran 2 semanas antes del inicio de cada ciclo. Reserva tu lugar con anticipación para acceder al descuento especial de ingreso.</p>
+            <p>La página oficial indica inicio el 20 de agosto y una duración de 6 meses. Para confirmar la próxima fecha de inicio, comunícate con admisión.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button type="button" class="faq-item__question" aria-expanded="false">
-            <span>¿Cuáles son los horarios y cuánto dura la carrera?</span>
+            <span>¿En qué podré trabajar?</span>
             <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6,9 12,15 18,9"/></svg>
           </button>
           <div class="faq-item__answer">
-            <p>La carrera dura 3 años (6 módulos semestrales). Ofrecemos 3 turnos: Mañana (7am–1pm), Tarde (1pm–7pm) y Noche (7pm–11pm). Puedes estudiar y trabajar al mismo tiempo.</p>
+            <p>El campo laboral publicado considera industria farmacéutica, representación de marcas de laboratorios o farmacias, consultorios médicos de diversas especialidades y compañías farmacéuticas.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button type="button" class="faq-item__question" aria-expanded="false">
-            <span>¿Cuánto es la pensión y qué descuentos hay?</span>
+            <span>¿Qué requisitos necesito para preinscribirme?</span>
             <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6,9 12,15 18,9"/></svg>
           </button>
           <div class="faq-item__answer">
-            <p>La pensión regular es S/. 320 mensuales. Ofrecemos 20% de descuento para los primeros 10 inscritos, becas por excelencia académica, y planes de pago semanales o quincenales.</p>
+            <p>Necesitas una copia de DNI o carné de extranjería y una copia de recibo de agua, luz o teléfono.</p>
           </div>
         </div>
       </div>
@@ -764,7 +909,7 @@
 
         <div class="cta-block__intro">
           <h2>¿Listo para impulsar tu carrera como <span class="cta-block__intro-accent">Visitador Médico</span>?</h2>
-          <p>Contacta con admisión hoy. Vacantes limitadas por ciclo.</p>
+          <p>Solicita detalles sobre inicio, horarios, requisitos y proceso de preinscripción.</p>
         </div>
 
         <div class="cta-block__body">
@@ -792,7 +937,7 @@
             <div class="footer-brand__logo" aria-hidden="true">IESRP</div>
             <div class="footer-brand__name">Instituto de Educación Superior<br />Ricardo Palma</div>
           </div>
-          <p class="footer-brand__desc">Formando profesionales técnicos en salud desde 1998 con el respaldo de la Clínica Ricardo Palma.</p>
+          <p class="footer-brand__desc">Formando profesionales para la industria de la salud, la empleabilidad y el emprendimiento.</p>
           <div class="footer-brand__tags">
             <span>MINEDU Licenciado</span>
             <span>RUC: 20601234567</span>
@@ -819,7 +964,7 @@ San Isidro, Lima</div>
           <div>
             <div class="footer-heading">Carreras</div>
             <ul class="footer-links">
-              <li>Enfermería Técnica</li>
+              <li>Visitador Médico</li>
               <li>Farmacia Técnica</li>
               <li>Laboratorio Clínico</li>
               <li>Fisioterapia y Rehabilitación</li>
@@ -829,7 +974,7 @@ San Isidro, Lima</div>
             <div class="footer-heading">Contacto</div>
             <ul class="footer-contact">
               <li><a href="tel:+5114416000"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (01) 441-6000</a></li>
-              <li><a href="tel:+51944123456"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg> +51 944 123 456</a></li>
+              <li><a href="tel:+51908913725"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg> +51 908 913 725</a></li>
               <li><a href="mailto:admision@iesrp.edu.pe"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg> admision@iesrp.edu.pe</a></li>
             </ul>
             <a class="footer-complaints" href="/libro-de-reclamaciones.html">
@@ -843,7 +988,7 @@ San Isidro, Lima</div>
           <div>
             <div class="footer-heading">Carreras</div>
             <ul class="footer-links">
-              <li>Enfermería Técnica</li>
+              <li>Visitador Médico</li>
               <li>Farmacia Técnica</li>
               <li>Lab. Clínico</li>
               <li>Fisioterapia</li>
@@ -853,7 +998,7 @@ San Isidro, Lima</div>
             <div class="footer-heading">Contacto</div>
             <ul class="footer-contact">
               <li><a href="tel:+5114416000"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (01) 441-6000</a></li>
-              <li><a href="tel:+51944123456"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg> +51 944 123 456</a></li>
+              <li><a href="tel:+51908913725"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg> +51 908 913 725</a></li>
               <li><a href="mailto:admision@iesrp.edu.pe"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg> admision@iesrp.edu.pe</a></li>
             </ul>
           </div>
@@ -871,7 +1016,7 @@ San Isidro, Lima</div>
        BARRA FIJA MÓVIL
        ============================================================ -->
   <div class="sticky-bar" id="sticky-bar">
-    <a class="btn btn-whatsapp sticky-bar__whatsapp" href="https://wa.me/51944123456?text=Hola%2C+quiero+informaci%C3%B3n+sobre+Enfermer%C3%ADa+T%C3%A9cnica" target="_blank" rel="noopener noreferrer">
+    <a class="btn btn-whatsapp sticky-bar__whatsapp" href="https://wa.me/51908913725?text=Hola%2C+quiero+informaci%C3%B3n+sobre+Visitador+M%C3%A9dico" target="_blank" rel="noopener noreferrer">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>
@@ -884,6 +1029,7 @@ San Isidro, Lima</div>
   <script src="js/gallery.js"></script>
   <script src="js/faqAccordion.js"></script>
   <script src="js/stickyBar.js"></script>
+  <script src="js/visitadorCurriculum.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

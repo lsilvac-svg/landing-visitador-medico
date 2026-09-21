@@ -412,3 +412,314 @@
 @media (hover: hover) and (pointer: fine) {
   .tab-strip__btn:hover { transform: translateY(-1px); }
 }
+
+/* ------------------------------------------------------------
+   Versión anterior de la malla (tab-strip / module-panel arriba)
+   se mantiene oculta: la malla oficial vigente es el bloque
+   .official-curriculum + .vm-curriculum de más abajo.
+   ------------------------------------------------------------ */
+.legacy-curriculum {
+  display: none;
+}
+
+/* ============================================================
+   MALLA CURRICULAR OFICIAL — acordeón de respaldo (sin JS) +
+   patrón de tabs .vm-curriculum (patrón vigente, con JS).
+   ============================================================ */
+.official-curriculum {
+  background: var(--color-white);
+}
+
+.official-curriculum__intro {
+  max-width: 650px;
+  color: #526e7f;
+  line-height: 1.55;
+}
+
+.legacy-official-curriculum {
+  display: none;
+}
+
+.official-curriculum__accordion {
+  display: grid;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.official-curriculum details {
+  border: 1px solid #d9ece9;
+  border-radius: 14px;
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.official-curriculum summary {
+  min-height: 66px;
+  padding: 12px 15px;
+  display: grid;
+  grid-template-columns: 31px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--color-navy);
+}
+
+.official-curriculum summary::-webkit-details-marker {
+  display: none;
+}
+
+.official-curriculum summary span {
+  color: var(--color-cyan);
+  font-family: var(--font-heading);
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.official-curriculum summary strong {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+}
+
+.official-curriculum summary small {
+  font-size: .65rem;
+  color: #5f7c8c;
+}
+
+.official-curriculum details[open] {
+  border-color: #8cddd3;
+  box-shadow: 0 10px 26px rgba(0, 127, 122, .07);
+}
+
+.official-curriculum details[open] summary {
+  background: #f0fdfb;
+}
+
+.official-curriculum ul {
+  margin: 0;
+  padding: 0 20px 19px 48px;
+  color: #426078;
+}
+
+.official-curriculum li {
+  margin: 0 0 8px;
+  font-size: .86rem;
+  line-height: 1.45;
+}
+
+.official-curriculum li::marker {
+  color: var(--color-cyan);
+}
+
+@media (min-width: 640px) {
+  .official-curriculum summary {
+    padding-inline: 25px;
+    grid-template-columns: 36px 1fr auto;
+  }
+
+  .official-curriculum ul {
+    padding-left: 72px;
+  }
+}
+
+@media (min-width: 960px) {
+  .official-curriculum__accordion {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .official-curriculum details {
+    height: max-content;
+  }
+
+  .official-curriculum summary {
+    min-height: 76px;
+  }
+}
+
+/* ------------------------------------------------------------
+   .vm-curriculum — patrón de tabs vigente de la malla oficial
+   (reemplaza visualmente al acordeón .legacy-official-curriculum,
+   que se conserva oculto como alternativa sin JS).
+   ------------------------------------------------------------ */
+.vm-curriculum {
+  margin-top: 27px;
+}
+
+.vm-curriculum__tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 7px;
+  border: 1px solid #cfe9e5;
+  border-radius: 16px;
+  background: #f0faf8;
+}
+
+.vm-curriculum__tabs button {
+  min-height: 72px;
+  padding: 10px 7px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 7px;
+  align-items: center;
+  text-align: left;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #547384;
+  font-family: var(--font-heading);
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1.14;
+  cursor: pointer;
+}
+
+.vm-curriculum__tabs b {
+  color: var(--color-cyan);
+  font-size: .82rem;
+}
+
+.vm-curriculum__tabs button.is-active {
+  color: #fff;
+  background: var(--color-cyan);
+  box-shadow: 0 8px 17px rgba(8, 170, 165, .2);
+}
+
+.vm-curriculum__tabs button.is-active b {
+  color: #ffca3a;
+}
+
+.vm-curriculum__panel {
+  display: grid;
+  gap: 20px;
+  margin-top: 14px;
+  padding: 22px;
+  border: 1px solid #cfe8e4;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff, #f7fdfc);
+  box-shadow: 0 10px 26px rgba(4, 87, 91, .06);
+}
+
+.vm-curriculum__panel[hidden] {
+  display: none;
+}
+
+.vm-curriculum__panel header span {
+  display: inline-block;
+  margin-bottom: 9px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--color-cyan-dark);
+  background: #e4faf6;
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.vm-curriculum__panel h3 {
+  margin: 0 0 9px;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+.vm-curriculum__panel header p {
+  margin: 0;
+  color: #537081;
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+.vm-curriculum__panel ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vm-curriculum__panel li {
+  position: relative;
+  min-height: 45px;
+  padding: 10px 11px 10px 30px;
+  border: 1px solid #deefec;
+  border-radius: 10px;
+  background: var(--color-white);
+  color: #3f6073;
+  font-size: .78rem;
+  line-height: 1.4;
+}
+
+.vm-curriculum__panel li::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 17px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 0 3px #ddf7f2;
+}
+
+@media (min-width: 640px) {
+  .vm-curriculum__tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .vm-curriculum__tabs button {
+    min-height: 76px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .vm-curriculum__panel {
+    padding: 28px;
+  }
+
+  .vm-curriculum__panel ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .official-curriculum .section-heading,
+  .official-curriculum__intro {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .vm-curriculum {
+    max-width: 1050px;
+    margin: 32px auto 0;
+  }
+
+  .vm-curriculum__tabs {
+    padding: 8px;
+  }
+
+  .vm-curriculum__tabs button {
+    min-height: 82px;
+    font-size: .78rem;
+  }
+
+  .vm-curriculum__panel {
+    grid-template-columns: minmax(250px, .65fr) minmax(0, 1.35fr);
+    gap: 35px;
+    padding: 32px;
+  }
+
+  .vm-curriculum__panel header {
+    padding-right: 28px;
+    border-right: 1px solid #dcefed;
+  }
+
+  .vm-curriculum__panel li {
+    font-size: .8rem;
+  }
+}

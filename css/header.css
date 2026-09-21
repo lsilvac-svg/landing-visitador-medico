@@ -201,90 +201,6 @@
   .header-cta__icon {
     display: none;
   }
-
-  .mobile-menu {
-    position: relative;
-    flex: 0 0 auto;
-  }
-
-  .mobile-menu__toggle {
-    width: 36px;
-    height: 36px;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    border-radius: 8px;
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .mobile-menu__toggle::-webkit-details-marker {
-    display: none;
-  }
-
-  .mobile-menu__toggle::marker {
-    content: "";
-  }
-
-  .mobile-menu__toggle span {
-    width: 20px;
-    height: 2px;
-    display: block;
-    border-radius: 99px;
-    background: #082d45;
-    transition: transform .18s ease, opacity .18s ease;
-  }
-
-  .mobile-menu[open] .mobile-menu__toggle span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-  }
-
-  .mobile-menu[open] .mobile-menu__toggle span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .mobile-menu[open] .mobile-menu__toggle span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-  }
-
-  .mobile-menu__panel {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    width: min(220px, calc(100vw - 28px));
-    padding: 8px;
-    display: grid;
-    gap: 2px;
-    border: 1px solid rgba(8,45,69,.08);
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 16px 35px rgba(8,45,69,.16);
-  }
-
-  .mobile-menu__panel a {
-    min-height: 42px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    color: #082d45;
-    font-size: .83rem;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .mobile-menu__panel a:active,
-  .mobile-menu__panel a:focus-visible {
-    background: #effbf9;
-  }
-}
-
-@media (min-width: 640px) {
-  .mobile-menu {
-    display: none;
-  }
 }
 
 /* Mobile final: margen lateral uniforme y sin desbordes. */
@@ -308,11 +224,5 @@
     min-height: 30px;
     padding-inline: 11px;
     font-size: .6rem;
-  }
-
-  .mobile-menu__toggle {
-    width: 32px;
-    height: 32px;
-    padding: 6px;
   }
 }
