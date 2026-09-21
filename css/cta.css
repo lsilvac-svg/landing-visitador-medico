@@ -1,0 +1,143 @@
+/* ============================================================
+   CTA final — teal + amarillo, igual al lenguaje del banner
+   ============================================================ */
+.cta-block {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 18px;
+  border: 1px solid rgba(4, 126, 122, 0.16);
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #08aaa5 0%, #07958f 58%, #087f7d 100%);
+  box-shadow: 0 18px 42px rgba(8, 135, 132, 0.2);
+}
+
+.cta-block__glow-a,
+.cta-block__glow-b {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta-block__glow-a {
+  top: -90px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 68%);
+}
+
+.cta-block__glow-b {
+  bottom: -120px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 194, 11, 0.14), transparent 70%);
+}
+
+.cta-block__intro {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto 22px;
+  text-align: center;
+}
+
+.cta-block__intro h2 {
+  margin-bottom: 9px;
+  color: #fff;
+  font-size: clamp(1.45rem, 1.18rem + 1.2vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+}
+
+.cta-block__intro-accent {
+  color: #ffe27a;
+  text-shadow: none;
+}
+
+.cta-block__intro p {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.cta-block__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-block__whatsapp {
+  position: relative;
+  width: min(100%, 340px);
+  min-height: 56px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  color: var(--color-navy);
+  background: linear-gradient(180deg, #ffc91b 0%, #ffb700 100%);
+  box-shadow: 0 10px 24px rgba(107, 78, 0, 0.18);
+  text-shadow: none;
+  white-space: normal;
+}
+
+.cta-block__whatsapp > svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  color: #128c4b;
+}
+
+.cta-block__whatsapp-title {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.cta-block__whatsapp-sub {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  color: rgba(8, 45, 69, 0.75);
+  font-size: 0.66rem;
+  font-weight: 600;
+}
+
+.cta-block__whatsapp-badge {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  padding: 3px 8px;
+  border: 2px solid var(--color-cyan);
+  border-radius: 999px;
+  color: #fff;
+  background: #128c4b;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 640px) {
+  .cta-block {
+    padding: 42px 34px;
+    border-radius: 22px;
+  }
+
+  .cta-block__intro {
+    margin-bottom: 28px;
+  }
+
+  .cta-block__whatsapp {
+    width: auto;
+    min-width: 330px;
+    min-height: 60px;
+    padding-inline: 22px;
+  }
+}

@@ -1,0 +1,25 @@
+/* Capa específica Visitador Médico: mobile first y mejora progresiva. */
+@media (max-width: 639px) {
+  .hero { background:linear-gradient(155deg,#e5fbf8 0%,#c4f2ed 56%,#b5e9e4 100%); }
+  .hero__content { max-width:460px; padding:24px 18px 30px; grid-template-columns:minmax(0,1fr) minmax(102px,.68fr); grid-template-areas:"title title" "rule rule" "highlights visual" "proof proof" "form form"; gap:14px 10px; }
+  .hero__copy { display:contents; }
+  .hero__title { grid-area:title; margin:0; font-size:clamp(1.7rem,8vw,2.3rem); line-height:1.02; letter-spacing:-.045em; }
+  .hero__title-line { white-space:normal; }
+  .hero__title-rule { grid-area:rule; margin:0; }
+  .hero__highlights { grid-area:highlights; margin:0; gap:9px; }
+  .hero__highlights li { min-height:58px; padding:7px; grid-template-columns:36px minmax(0,1fr); gap:8px; border-radius:10px; background:rgba(255,255,255,.9); box-shadow:0 7px 16px rgba(0,83,81,.07); font-size:.63rem; line-height:1.28; }
+  .hero__highlight-icon { width:36px; height:36px; border-radius:9px; }
+  .hero__highlight-icon svg { width:19px; height:19px; }
+  .hero__visual { grid-area:visual; display:flex; width:100%; max-width:152px; height:auto; margin:0; align-self:end; justify-self:center; overflow:visible; }
+  .hero__visual img { width:100%; height:auto; max-height:none; object-fit:contain; filter:drop-shadow(0 14px 14px rgba(0,58,63,.15)); }
+  .hero__social-proof { grid-area:proof; width:100%; min-height:58px; margin:0; padding:10px 11px; border-radius:11px; box-shadow:0 8px 18px rgba(0,83,81,.08); }
+  .hero__rating-count { font-size:.59rem; line-height:1.25; }
+  .hero__form-card { grid-area:form; width:100%; margin:0; border-radius:14px; box-shadow:0 16px 35px rgba(0,82,79,.18); }
+  .hero__form-header { padding:17px 14px 13px; text-align:center; }
+  .hero__form-title { font-size:1.25rem; line-height:1.04; }
+  .hero__form-subtitle { justify-content:center; font-size:.62rem; }
+  .hero__form-body { padding:13px 14px 15px; }
+  .form-label { font-size:.6rem; }.form-input,.form-select { min-height:40px; height:40px; padding:8px 10px; border-radius:7px; font-size:.72rem; }.form-fields{gap:9px;margin-bottom:9px}.form-turno{margin-bottom:9px}.hero__submit{min-height:43px;font-size:.71rem;border-radius:7px}.form-privacy{font-size:.5rem}
+  .section { padding-block:62px; }.section-heading { font-size:clamp(1.8rem,8vw,2.35rem); line-height:1.05; }.bento__grid,.bento__row { gap:14px; }.bento-card { border-radius:15px; }
+}
+@media (min-width:640px) and (max-width:959px) { .hero__visual img{filter:drop-shadow(0 18px 17px rgba(0,58,63,.14));} }

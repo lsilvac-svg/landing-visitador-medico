@@ -1,0 +1,76 @@
+/* ============================================================
+   Design tokens — sistema visual alineado al hero/banner.
+   ============================================================ */
+:root {
+  /* Marca */
+  --color-navy: #082d45;
+  --color-navy-soft: #123f55;
+  --color-navy-footer: #066e6b;
+  --color-cyan: #08aaa5;
+  --color-cyan-dark: #078d89;
+  --color-cyan-soft: #d7f6f3;
+  --color-cyan-pale: #eefaf9;
+  --color-blue: #0b8e99;
+  --color-blue-dark: #08747c;
+  --color-gold: #ffc20b;
+  --color-gold-dark: #e9ad00;
+
+  /* Compatibilidad con clases existentes */
+  --color-orange: #ffc20b;
+  --color-orange-dark: #e9ad00;
+  --color-orange-grad: #ffb800;
+  --color-orange-light: #ffe17a;
+
+  --color-whatsapp: #25d366;
+  --color-tiktok: #ff0050;
+  --color-youtube: #ff0000;
+
+  /* Neutros */
+  --color-white: #ffffff;
+  --color-slate-50: #f7fbfb;
+  --color-slate-100: #eef5f5;
+  --color-slate-200: #dbe8e8;
+  --color-slate-300: #c5d6d7;
+  --color-slate-400: #8ba1aa;
+  --color-slate-500: #647d87;
+  --color-slate-600: #4a6672;
+  --color-slate-700: #2e4e5c;
+  --color-slate-900: #082d45;
+
+  /* Tipografía */
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --fs-title: clamp(1.75rem, 1.34rem + 1.8vw, 2.55rem);
+  --fs-subtitle: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  --fs-text: 0.9375rem;
+  --fs-small: 0.8125rem;
+
+  /* Layout */
+  --container-max: 1180px;
+  --px: 18px;
+  --section-py: 58px;
+  --radius-sm: 9px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+
+  /* Sombras */
+  --shadow-card: 0 12px 34px rgba(8, 45, 69, 0.08);
+  --shadow-card-hover: 0 18px 42px rgba(8, 45, 69, 0.13);
+  --shadow-teal: 0 14px 34px rgba(8, 170, 165, 0.18);
+  --shadow-cta: 0 10px 24px rgba(255, 184, 0, 0.28);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --px: 28px;
+    --section-py: 72px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --px: 32px;
+    --section-py: 86px;
+  }
+}
