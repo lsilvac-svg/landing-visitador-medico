@@ -1,102 +1,137 @@
-/* ============================================================
-   PERFIL PROFESIONAL + INFORMACIÓN DEL PROGRAMA — Mobile First
-   Dos secciones contiguas que comparten un degradado menta/turquesa
-   continuo (más claro arriba, algo más intenso hacia abajo).
-   ============================================================ */
-.program-profile {
-  position: relative;
-  overflow: hidden;
-  background-color: #d9f7f2;
-  background-image: linear-gradient(180deg, #eafcfa 0%, #d9f7f2 100%);
-}
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap");
 
+/* ============================================================
+   PERFIL PROFESIONAL + INFORMACIÓN DEL PROGRAMA
+   Mobile First
+   ============================================================ */
+
+.program-profile,
 .career-details {
   position: relative;
+  width: 100%;
   overflow: hidden;
-  background-color: #c7f0ea;
-  background-image: linear-gradient(180deg, #d9f7f2 0%, #c7f0ea 100%);
 }
 
-/* Puntos decorativos muy sutiles, coherentes con el patrón del hero */
-.program-profile::before,
-.career-details::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-  border-radius: 50%;
+.program-profile > .container,
+.career-details > .container {
+  width: min(calc(100% - 36px), 1180px);
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
-.program-profile::before {
-  width: 220px;
-  height: 220px;
-  right: -70px;
-  top: -60px;
-  background: radial-gradient(circle, rgba(255,255,255,.5) 0%, rgba(255,255,255,.15) 60%, transparent 75%);
+
+/* ============================================================
+   PERFIL PROFESIONAL
+   MOBILE FIRST
+   ============================================================ */
+
+.program-profile {
+  padding: 42px 0 0;
+
+  background:
+    radial-gradient(
+      circle at 78% 10%,
+      rgba(191, 248, 239, 0.42),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #ffffff 72%,
+      #f4fffd 100%
+    );
 }
 
-.career-details::after {
-  width: 190px;
-  height: 190px;
-  left: -70px;
-  bottom: -80px;
-  background: radial-gradient(circle, rgba(255,255,255,.4) 0%, rgba(255,255,255,.12) 60%, transparent 75%);
-}
 
 /* ------------------------------------------------------------
-   PERFIL PROFESIONAL
+   Grid
    ------------------------------------------------------------ */
+
 .program-profile__grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+
   display: grid;
   gap: 26px;
 }
 
-/* Contenedor blanco único que agrupa el intro (título + indicadores)
-   y la card de cita; ambos se ven como una sola superficie. */
+
+/* ------------------------------------------------------------
+   Panel
+   ------------------------------------------------------------ */
+
 .program-profile__panel {
-  padding: 22px 20px;
   display: grid;
-  gap: 22px;
-  border-radius: 18px;
-  background: var(--color-white);
-  box-shadow: 0 16px 34px rgba(8, 76, 85, .08);
+  gap: 24px;
 }
 
+
+/* ------------------------------------------------------------
+   Intro
+   ------------------------------------------------------------ */
+
 .program-profile__intro {
-  padding: 0;
+  position: relative;
+  z-index: 3;
 }
+
+
+/* ------------------------------------------------------------
+   Eyebrow
+   ------------------------------------------------------------ */
 
 .program-profile__eyebrow {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0 0 10px;
-  color: var(--color-cyan-dark);
+
+  margin: 0 0 16px;
+
+  color: #06a99e;
+
   font-family: var(--font-heading);
-  font-size: .74rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: .12em;
+
+  line-height: 1;
+
+  letter-spacing: 0.075em;
 }
 
 .program-profile__eyebrow-rule {
-  flex: 1 1 32px;
-  max-width: 46px;
+  width: 54px;
   height: 2px;
+
+  flex: none;
+
   border-radius: 999px;
-  background: var(--color-cyan);
-  opacity: .55;
+
+  background: #09b9ae;
 }
 
+
+/* ------------------------------------------------------------
+   Título
+   ------------------------------------------------------------ */
+
 .program-profile__title {
-  margin: 0 0 18px;
-  color: var(--color-navy);
+  margin: 0 0 26px;
+
+  color: #082d45;
+
   font-family: var(--font-heading);
-  font-size: clamp(1.7rem, 6.6vw, 2rem);
+
+  font-size: clamp(
+    2rem,
+    9.2vw,
+    2.6rem
+  );
+
   font-weight: 800;
-  line-height: 1.14;
-  letter-spacing: -.02em;
+
+  line-height: 1.09;
+
+  letter-spacing: -0.045em;
 }
 
 .program-profile__title-line {
@@ -104,76 +139,147 @@
 }
 
 .program-profile__title-accent {
-  color: var(--color-cyan);
+  color: #08b2a8;
 }
+
+
+/* ------------------------------------------------------------
+   Indicadores
+   ------------------------------------------------------------ */
 
 .program-profile__indicators {
   margin: 0;
   padding: 0;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px 10px;
+  gap: 14px;
+
   list-style: none;
 }
 
 .program-profile__indicators li {
+  position: relative;
+
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
 
-.program-profile__indicators li:first-child {
-  grid-column: 1 / -1;
+  gap: 12px;
+
+  min-width: 0;
 }
 
 .program-profile__indicator-icon {
-  width: 40px;
-  height: 40px;
-  flex: none;
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
   display: grid;
   place-items: center;
+
   border-radius: 50%;
-  color: var(--color-cyan-dark);
-  background: var(--color-cyan-soft);
+
+  color: #079e99;
+
+  background: #dffbf7;
 }
 
 .program-profile__indicator-icon svg {
-  width: 19px;
-  height: 19px;
+  width: 25px;
+  height: 25px;
 }
 
-.program-profile__indicators li span:last-child {
+.program-profile__indicators li > span:last-child {
   min-width: 0;
-  color: var(--color-navy);
-  font-size: .78rem;
+
+  color: #082d45;
+
+  font-size: 0.79rem;
   font-weight: 700;
-  line-height: 1.28;
+
+  line-height: 1.34;
 }
+
+
+/* ============================================================
+   CARD DESCRIPTIVA
+   ============================================================ */
 
 .program-profile__copy-card {
   position: relative;
-  padding: 20px 0 0 20px;
-  border-top: 1px solid var(--color-cyan-soft);
-  border-left: 4px solid var(--color-cyan);
+  z-index: 4;
+
+  padding:
+    20px
+    24px
+    22px
+    38px;
+
+  border: 1px solid #c8f1eb;
+  border-radius: 13px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.96
+  );
+
+  box-shadow:
+    0 8px 24px
+    rgba(10, 98, 101, 0.035);
 }
+
+
+/* Línea turquesa */
+
+.program-profile__copy-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 23px;
+  bottom: 23px;
+  left: 10px;
+
+  width: 5px;
+
+  border-radius: 999px;
+
+  background: #09b9ae;
+}
+
+
+/* Comillas */
 
 .program-profile__quote-icon {
-  width: 26px;
-  height: 26px;
-  margin-bottom: 12px;
-  color: var(--color-cyan);
-  opacity: .85;
+  width: 42px;
+  height: 42px;
+
+  margin: 0 0 11px;
+
+  padding: 11px;
+
+  border-radius: 50%;
+
+  color: #08b2a8;
+
+  background: #dffbf7;
 }
 
+
+/* Texto */
+
 .program-profile__copy {
-  color: #395c72;
-  font-size: .92rem;
-  line-height: 1.62;
+  color: #355872;
+
+  font-size: 0.9rem;
+
+  line-height: 1.48;
 }
 
 .program-profile__copy p {
-  margin: 0 0 14px;
+  margin: 0 0 13px;
 }
 
 .program-profile__copy p:last-child {
@@ -181,333 +287,1771 @@
 }
 
 .program-profile__copy strong {
-  color: var(--color-navy);
+  color: #082d45;
+
+  font-weight: 800;
 }
+
+
+/* ============================================================
+   PROFESIONAL
+   ============================================================ */
 
 .program-profile__visual {
   position: relative;
-  width: 100%;
-  max-width: 320px;
-  margin: 6px auto 0;
-  overflow: hidden;
-  border-radius: 18px;
+  z-index: 2;
+
+  width: min(
+    100%,
+    360px
+  );
+
+  min-height: 340px;
+
+  margin: 0 auto;
+
+  overflow: visible;
 }
 
-.program-profile__visual-deco {
-  display: none;
+
+/* Fondo geométrico */
+
+.program-profile__visual::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  right: -22%;
+  bottom: 0;
+
+  width: 112%;
+  height: 78%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(219, 255, 249, 0.16),
+      rgba(157, 244, 229, 0.66)
+    );
+
+  clip-path:
+    polygon(
+      31% 0,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
 }
+
+
+/* Imagen */
 
 .program-profile__visual img {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 930 / 1028;
-  object-fit: cover;
-  object-position: center top;
-  -webkit-mask-image: linear-gradient(to bottom, #000 94%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 94%, transparent 100%);
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: auto;
+  max-width: none;
+  height: 340px;
+
+  transform:
+    translateX(-50%);
 }
+
+
+/* Texto manuscrito */
 
 .program-profile__visual-caption {
-  display: none;
+  position: absolute;
+  z-index: 3;
+
+  top: 96px;
+  right: -2px;
+
+  margin: 0;
+
+  color:
+    rgba(
+      31,
+      144,
+      143,
+      0.72
+    );
+
+  font-family:
+    "Caveat",
+    "Segoe Script",
+    cursive;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  line-height: 1.08;
+
+  text-align: center;
+
+  transform:
+    rotate(-8deg);
 }
 
-/* ------------------------------------------------------------
-   INFORMACIÓN DEL PROGRAMA
-   ------------------------------------------------------------ */
-.career-details__head {
-  position: relative;
+.program-profile__visual-caption::after {
+  content: "";
+
+  display: block;
+
+  width: 58px;
+  height: 2px;
+
+  margin: 2px auto 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      31,
+      144,
+      143,
+      0.5
+    );
+
+  transform:
+    rotate(-9deg);
+}
+
+
+/* ============================================================
+   ELEMENTOS DECORATIVOS
+   ============================================================ */
+
+.program-profile__molecule,
+.program-profile__capsule {
+  position: absolute;
+
   z-index: 1;
-  margin-bottom: 26px;
+
+  pointer-events: none;
+}
+
+
+/* Moléculas */
+
+.program-profile__molecule {
+  width: 86px;
+  height: auto;
+
+  color: #74dccf;
+
+  opacity: 0.34;
+}
+
+.program-profile__molecule--left {
+  left: -28px;
+  bottom: -1px;
+}
+
+.program-profile__molecule--right {
+  display: none;
+
+  top: -21px;
+  right: 18%;
+}
+
+
+/* Cápsula */
+
+.program-profile__capsule {
+  display: none;
+
+  top: 28px;
+  right: 20px;
+
+  width: 55px;
+  height: 120px;
+
+  border:
+    3px solid
+    rgba(
+      73,
+      213,
+      198,
+      0.18
+    );
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(137, 245, 231, 0.12),
+      rgba(137, 245, 231, 0.3),
+      rgba(255, 255, 255, 0.08)
+    );
+
+  transform:
+    rotate(24deg);
+}
+
+.program-profile__capsule::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: -3px;
+  right: -3px;
+
+  height: 3px;
+
+  background:
+    rgba(
+      73,
+      213,
+      198,
+      0.16
+    );
+}
+
+
+/* ============================================================
+   INFORMACIÓN DEL PROGRAMA
+   MOBILE FIRST
+   ============================================================ */
+
+.career-details {
+  padding:
+    42px
+    0
+    50px;
+
+  background:
+    radial-gradient(
+      circle at 80% 42%,
+      rgba(255, 255, 255, 0.88),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #edfffc 0%,
+      #ddfaf5 48%,
+      #f5fffd 100%
+    );
+}
+
+.career-details > .container {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* ============================================================
+   CABECERA
+   ============================================================ */
+
+.career-details__head {
+  margin:
+    0
+    0
+    22px;
 }
 
 .career-details__eyebrow {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0 0 10px;
-  color: var(--color-cyan-dark);
-  font-family: var(--font-heading);
-  font-size: .74rem;
+
+  gap: 14px;
+
+  margin:
+    0
+    0
+    10px;
+
+  color: #06a99e;
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: .12em;
+
+  line-height: 1;
+
+  letter-spacing: 0.075em;
 }
 
 .career-details__eyebrow-rule {
-  flex: none;
-  width: 22px;
+  width: 30px;
   height: 2px;
+
+  flex: none;
+
   border-radius: 999px;
-  background: var(--color-cyan);
-  opacity: .6;
+
+  background: #08aaa5;
 }
+
+
+/* Título */
 
 .career-details__title {
   margin: 0;
-  color: var(--color-navy);
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 6vw, 1.9rem);
+
+  color: #082d45;
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(
+      1.8rem,
+      8vw,
+      2.35rem
+    );
+
   font-weight: 800;
-  line-height: 1.16;
-  letter-spacing: -.02em;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.045em;
 }
+
+
+/* ============================================================
+   TEXTO MANUSCRITO
+   ============================================================ */
 
 .career-details__script {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 16px 0 0;
-  color: #0a4a52;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-size: .84rem;
-  line-height: 1.3;
+  margin: 0;
+
+  color:
+    rgba(
+      45,
+      142,
+      145,
+      0.56
+    );
+
+  font-family:
+    "Caveat",
+    "Segoe Script",
+    cursive;
+
+  font-weight: 500;
+
+  line-height: 1.08;
 }
 
-.career-details__script-rule {
-  flex: none;
-  width: 22px;
-  height: 2px;
-  margin-top: 8px;
-  border-radius: 999px;
-  background: var(--color-cyan);
-  opacity: .6;
+.career-details__script--top {
+  display: none;
 }
 
-.career-details__script--bottom {
-  margin: 30px 0 0;
-  color: #0a4a52;
-  transform: rotate(-2deg);
-}
+
+/* ============================================================
+   GRID DE CARDS
+   ============================================================ */
 
 .career-details__grid {
-  position: relative;
-  z-index: 1;
   display: grid;
+
   gap: 14px;
 }
 
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
 .career-details__card {
   position: relative;
-  min-height: auto;
-  padding: 22px 20px 52px;
-  border: 1px solid #dcefeb;
+
+  display: grid;
+
+  grid-template-columns:
+    64px
+    minmax(0, 1fr);
+
+  grid-template-rows:
+    auto
+    auto
+    1fr;
+
+  column-gap: 16px;
+
+  min-height: 190px;
+
+  padding:
+    18px
+    18px
+    26px
+    24px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    #96e9de;
+
   border-radius: 16px;
-  background: var(--color-white);
-  box-shadow: 0 8px 22px rgba(7, 76, 85, .06);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.96
+    );
+
+  box-shadow:
+    0 8px 20px
+    rgba(
+      13,
+      125,
+      122,
+      0.035
+    );
 }
+
+
+/* Card destacada */
 
 .career-details__card--featured {
-  border: 2px solid var(--color-gold);
-  box-shadow: 0 10px 26px rgba(233, 173, 0, .18);
+  border-top:
+    3px solid
+    #ffc20b;
 }
+
+
+/* pequeño punto central superior */
+
+.career-details__card--featured::before {
+  content: "";
+
+  position: absolute;
+
+  top: -4px;
+  left: 52%;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #ffc20b;
+}
+
+
+/* Permite distribuir number/icon dentro del grid */
 
 .career-details__card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  display: contents;
 }
+
+
+/* ============================================================
+   NÚMERO
+   ============================================================ */
 
 .career-details__number {
-  color: var(--color-cyan-soft);
-  font-family: var(--font-heading);
-  font-size: 2rem;
+  grid-column: 1;
+
+  grid-row:
+    1 / 4;
+
+  align-self: start;
+
+  margin-top: 2px;
+
+  color: #d3f9f3;
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 2.5rem;
   font-weight: 800;
-  letter-spacing: -.02em;
-  -webkit-text-stroke: 1px rgba(8, 170, 165, .35);
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
 }
 
+
+/* ============================================================
+   ICONO
+   ============================================================ */
+
 .career-details__icon {
-  width: 44px;
-  height: 44px;
-  flex: none;
+  grid-column: 2;
+  grid-row: 1;
+
+  width: 52px;
+  height: 52px;
+
   display: grid;
   place-items: center;
+
   border-radius: 50%;
-  color: var(--color-cyan-dark);
-  background: var(--color-cyan-soft);
+
+  color: #083b5a;
+
+  background: #d8faf5;
 }
 
 .career-details__icon svg {
-  width: 21px;
-  height: 21px;
+  width: 27px;
+  height: 27px;
 }
+
+
+/* ============================================================
+   TÍTULO CARD
+   ============================================================ */
 
 .career-details__card h3 {
-  margin: 0 0 10px;
-  color: var(--color-navy);
-  font-family: var(--font-heading);
-  font-size: 1.28rem;
+  grid-column: 2;
+  grid-row: 2;
+
+  margin:
+    10px
+    0
+    4px;
+
+  color: #082d45;
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 1.08rem;
+  font-weight: 800;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.02em;
 }
 
+
+/* ============================================================
+   TEXTO CARD
+   ============================================================ */
+
 .career-details__card p {
+  grid-column: 2;
+  grid-row: 3;
+
   margin: 0;
-  color: #46677a;
-  font-size: .88rem;
-  line-height: 1.55;
+
+  padding-right: 16px;
+
+  color: #3f5e75;
+
+  font-size: 0.82rem;
+
+  line-height: 1.42;
 }
+
+
+/* ============================================================
+   FLECHA
+   ============================================================ */
 
 .career-details__arrow {
   position: absolute;
-  right: 18px;
-  bottom: 18px;
+
+  right: 14px;
+  bottom: 13px;
+
   width: 34px;
   height: 34px;
+
   display: grid;
   place-items: center;
-  border: 1px solid var(--color-cyan-soft);
+
   border-radius: 50%;
-  color: var(--color-cyan-dark);
-  font-size: .95rem;
-  line-height: 1;
+
+  color: #0b4865;
+
+  background: #e1faf6;
 }
 
+.career-details__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* ============================================================
+   FRASE INFERIOR
+   ============================================================ */
+
+.career-details__script--bottom {
+  margin: 18px 0 0;
+
+  font-size: 1.08rem;
+
+  transform:
+    rotate(-7deg);
+}
+
+
+/* ============================================================
+   MOLÉCULA INFERIOR DERECHA
+   ============================================================ */
+
+.career-details__molecule {
+  position: absolute;
+
+  z-index: 1;
+
+  right: -26px;
+  bottom: -20px;
+
+  width: 118px;
+
+  color: #67d8cb;
+
+  opacity: 0.24;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   ≥ 640 PX
+   TABLET PEQUEÑA
+   ============================================================ */
+
 @media (min-width: 640px) {
-  .program-profile__grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "panel"
-      "visual";
-    gap: 36px;
-    align-items: start;
+
+  .program-profile > .container,
+  .career-details > .container {
+    width:
+      min(
+        calc(100% - 56px),
+        1180px
+      );
   }
 
-  .program-profile__panel {
-    grid-area: panel;
-    grid-template-columns: 1fr;
-    gap: 26px;
-    padding: 30px 32px;
+
+  /* ----------------------------------------------------------
+     Perfil
+     ---------------------------------------------------------- */
+
+  .program-profile {
+    padding-top: 54px;
   }
 
-  .program-profile__copy-card {
-    padding: 20px 0 0;
-    border-top: 1px solid var(--color-cyan-soft);
+  .program-profile__title {
+    font-size: 2.65rem;
   }
 
-  .program-profile__visual {
-    grid-area: visual;
-    max-width: 360px;
-  }
+
+  /* indicadores horizontal */
 
   .program-profile__indicators {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    justify-content: start;
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+
     gap: 0;
   }
 
   .program-profile__indicators li {
-    min-width: 0;
-    padding: 0 14px;
-    border-right: 1px solid rgba(8, 45, 69, .12);
+    padding:
+      0
+      16px;
   }
 
   .program-profile__indicators li:first-child {
-    grid-column: auto;
     padding-left: 0;
   }
 
-  .program-profile__indicators li:last-child {
-    border-right: 0;
+  .program-profile__indicators li:not(:last-child) {
+    border-right:
+      1px solid
+      rgba(
+        8,
+        45,
+        69,
+        0.13
+      );
   }
 
-  .career-details__head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 24px;
-  }
 
-  .career-details__script--top {
-    flex: none;
-    margin: 0;
-    text-align: left;
-  }
-
-  .career-details__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 960px) {
-  .program-profile__grid {
-    grid-template-columns: 2.4fr .82fr;
-    grid-template-areas: "panel visual";
-    gap: 30px;
-    align-items: center;
-  }
-
-  .program-profile__panel {
-    grid-template-columns: 1fr 1fr;
-    gap: 0 40px;
-    padding: 32px 34px;
-  }
+  /* card */
 
   .program-profile__copy-card {
-    padding: 0 0 0 32px;
-    border-top: 0;
+    padding:
+      22px
+      30px
+      24px
+      42px;
   }
 
-  .program-profile__title {
-    font-size: clamp(1.9rem, 2.5vw, 2.5rem);
-  }
+
+  /* imagen */
 
   .program-profile__visual {
-    max-width: none;
-    height: 380px;
-    margin: 0;
-    border-radius: 0;
-    overflow: visible;
-  }
-
-  .program-profile__visual-deco {
-    display: block;
-    position: absolute;
-    z-index: 0;
-    right: -18px;
-    bottom: 14%;
-    width: 92px;
-    transform: rotate(18deg);
+    min-height: 390px;
   }
 
   .program-profile__visual img {
-    position: relative;
-    z-index: 1;
-    width: auto;
-    height: 100%;
-    max-height: 380px;
-    max-width: none;
-    margin: 0 auto;
-    border-radius: 18px;
-    -webkit-mask-image: none;
-    mask-image: none;
+    height: 390px;
   }
+
+
+  /* ----------------------------------------------------------
+     Información
+     ---------------------------------------------------------- */
+
+  .career-details__head {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content:
+      space-between;
+
+    gap: 30px;
+  }
+
+
+  /* texto superior derecho */
+
+  .career-details__script--top {
+    display: flex;
+
+    align-items:
+      flex-start;
+
+    gap: 18px;
+
+    flex: none;
+
+    padding-bottom: 1px;
+
+    font-size: 0.98rem;
+  }
+
+  .career-details__script-rule {
+    width: 58px;
+    height: 2px;
+
+    flex: none;
+
+    margin-top: 8px;
+
+    background:
+      rgba(
+        8,
+        170,
+        165,
+        0.30
+      );
+  }
+
+
+  /* cards */
+
+  .career-details__grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 16px;
+  }
+
+}
+
+
+/* ============================================================
+   900 — 1239 PX
+   TABLET GRANDE / LAPTOP PEQUEÑO
+   ============================================================ */
+
+@media
+(min-width: 900px)
+and
+(max-width: 1239px) {
+
+  .program-profile__panel {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(340px, 0.9fr);
+
+    align-items: start;
+
+    gap: 30px;
+  }
+
+  .program-profile__copy-card {
+    margin-top: 4px;
+  }
+
+  .program-profile__visual {
+    width: 420px;
+    min-height: 420px;
+  }
+
+  .program-profile__visual img {
+    height: 420px;
+  }
+
+  .career-details__grid {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+/* ============================================================
+   ≥ 1240 PX
+   DESKTOP
+
+   Medidas calibradas contra la referencia de 1364 × 751
+   ============================================================ */
+
+@media (min-width: 1240px) {
+
+  /* ==========================================================
+     PERFIL
+     ========================================================== */
+
+  .program-profile > .container,
+  .career-details > .container {
+    width: 1180px;
+  }
+
+
+  /* ----------------------------------------------------------
+     sección
+     ---------------------------------------------------------- */
+
+  .program-profile {
+    height: 375px;
+    min-height: 375px;
+
+    padding:
+      64px
+      0
+      0;
+
+    background:
+      radial-gradient(
+        circle at 77% 17%,
+        rgba(
+          210,
+          252,
+          246,
+          0.44
+        ),
+        transparent 27%
+      ),
+      linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ffffff 78%,
+        #f7fffd 100%
+      );
+  }
+
+
+  /* ----------------------------------------------------------
+     Grid principal
+     ---------------------------------------------------------- */
+
+  .program-profile__grid {
+    height: 100%;
+
+    grid-template-columns:
+      510px
+      398px
+      minmax(0, 1fr);
+
+    gap: 27px;
+
+    align-items: start;
+  }
+
+
+  /* ----------------------------------------------------------
+     Panel
+     ---------------------------------------------------------- */
+
+  .program-profile__panel {
+    grid-column:
+      1 / 3;
+
+    display: grid;
+
+    grid-template-columns:
+      510px
+      398px;
+
+    gap: 27px;
+  }
+
+
+  /* ----------------------------------------------------------
+     Eyebrow
+     ---------------------------------------------------------- */
+
+  .program-profile__eyebrow {
+    margin-bottom: 16px;
+
+    font-size: 13px;
+  }
+
+  .program-profile__eyebrow-rule {
+    width: 55px;
+  }
+
+
+  /* ----------------------------------------------------------
+     título
+     ---------------------------------------------------------- */
+
+  .program-profile__title {
+    margin-bottom: 32px;
+
+    font-size: 44px;
+
+    line-height: 1.085;
+
+    letter-spacing: -0.047em;
+  }
+
+
+  /* ----------------------------------------------------------
+     indicadores
+     ---------------------------------------------------------- */
+
+  .program-profile__indicators {
+    width: 500px;
+
+    grid-template-columns:
+      154px
+      191px
+      155px;
+
+    gap: 0;
+  }
+
+  .program-profile__indicators li {
+    gap: 12px;
+
+    padding:
+      0
+      15px;
+  }
+
+  .program-profile__indicators li:first-child {
+    padding-left: 0;
+  }
+
+  .program-profile__indicators li:not(:last-child) {
+    border-right:
+      1px solid
+      rgba(
+        8,
+        45,
+        69,
+        0.13
+      );
+  }
+
+  .program-profile__indicator-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-basis: 50px;
+  }
+
+  .program-profile__indicator-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .program-profile__indicators li > span:last-child {
+    font-size: 12.5px;
+
+    line-height: 1.32;
+  }
+
+
+  /* ==========================================================
+     CARD CENTRAL
+     ========================================================== */
+
+  .program-profile__copy-card {
+    min-height: 272px;
+
+    margin-top: 4px;
+
+    padding:
+      18px
+      31px
+      19px
+      40px;
+
+    border-radius: 12px;
+  }
+
+  .program-profile__copy-card::before {
+    top: 24px;
+    bottom: 24px;
+
+    left: 10px;
+  }
+
+  .program-profile__quote-icon {
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 10px;
+  }
+
+  .program-profile__copy {
+    font-size: 14px;
+
+    line-height: 1.46;
+  }
+
+  .program-profile__copy p {
+    margin-bottom: 13px;
+  }
+
+
+  /* ==========================================================
+     PROFESIONAL
+     ========================================================== */
+
+  .program-profile__visual {
+    grid-column: 3;
+
+    align-self: end;
+
+    width: 360px;
+    height: 360px;
+    min-height: 360px;
+
+    margin:
+      0
+      0
+      0
+      -54px;
+  }
+
+
+  /* figura turquesa detrás */
+
+  .program-profile__visual::before {
+    right: -42px;
+    bottom: 0;
+
+    width: 360px;
+    height: 250px;
+
+    background:
+      linear-gradient(
+        140deg,
+        rgba(
+          230,
+          255,
+          251,
+          0.05
+        ),
+        rgba(
+          155,
+          245,
+          229,
+          0.58
+        )
+      );
+
+    clip-path:
+      polygon(
+        34% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+      );
+  }
+
+  .program-profile__visual img {
+    left: 0;
+    bottom: 0;
+
+    height: 360px;
+
+    transform: none;
+  }
+
+
+  /* texto lateral */
 
   .program-profile__visual-caption {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    top: 6%;
-    right: -6%;
-    max-width: 120px;
-    margin: 0;
-    color: #0a4a52;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-style: italic;
-    font-size: .86rem;
-    line-height: 1.25;
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-color: var(--color-gold);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    transform: rotate(4deg);
+    top: 166px;
+    right: 5px;
+
+    font-size: 16px;
   }
 
-  .career-details__card {
-    min-height: 236px;
-    padding: 28px 26px 58px;
+
+  /* ----------------------------------------------------------
+     molécula inferior izquierda
+     ---------------------------------------------------------- */
+
+  .program-profile__molecule--left {
+    left: -24px;
+    bottom: -6px;
+
+    width: 94px;
   }
+
+
+  /* ----------------------------------------------------------
+     molécula superior
+     ---------------------------------------------------------- */
+
+  .program-profile__molecule--right {
+    display: block;
+
+    top: -17px;
+    right: 20.2%;
+
+    width: 96px;
+  }
+
+
+  /* ----------------------------------------------------------
+     cápsula
+     ---------------------------------------------------------- */
+
+  .program-profile__capsule {
+    display: block;
+
+    top: 21px;
+    right: 44px;
+
+    width: 61px;
+    height: 132px;
+  }
+
+
+  /* ==========================================================
+     INFORMACIÓN DEL PROGRAMA
+     ========================================================== */
+
+  .career-details {
+    height: 376px;
+    min-height: 376px;
+
+    padding:
+      34px
+      0
+      20px;
+
+    background:
+      radial-gradient(
+        circle at 74% 43%,
+        rgba(
+          255,
+          255,
+          255,
+          0.78
+        ),
+        transparent 26%
+      ),
+      linear-gradient(
+        130deg,
+        #effffc 0%,
+        #ddfaf5 47%,
+        #f5fffd 100%
+      );
+  }
+
+  .career-details > .container {
+    min-height: 322px;
+  }
+
+
+  /* ----------------------------------------------------------
+     header
+     ---------------------------------------------------------- */
+
+  .career-details__head {
+    margin-bottom: 20px;
+  }
+
+  .career-details__eyebrow {
+    margin-bottom: 11px;
+
+    gap: 14px;
+
+    font-size: 13px;
+  }
+
+  .career-details__eyebrow-rule {
+    width: 30px;
+  }
+
+  .career-details__title {
+    font-size: 36px;
+
+    line-height: 1.08;
+  }
+
+
+  /* ----------------------------------------------------------
+     texto derecho
+     ---------------------------------------------------------- */
+
+  .career-details__script--top {
+    margin:
+      0
+      5px
+      2px
+      0;
+
+    gap: 18px;
+
+    font-size: 15px;
+
+    line-height: 1.12;
+  }
+
+  .career-details__script-rule {
+    width: 58px;
+  }
+
+
+  /* ==========================================================
+     CARDS
+     ========================================================== */
+
+  .career-details__grid {
+    width: 1160px;
+    max-width: 100%;
+
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+
+    gap: 18px;
+  }
+
+
+  /* Card */
+
+  .career-details__card {
+    height: 190px;
+    min-height: 190px;
+
+    grid-template-columns:
+      68px
+      minmax(0, 1fr);
+
+    column-gap: 15px;
+
+    padding:
+      17px
+      17px
+      22px
+      24px;
+
+    border-radius: 16px;
+  }
+
+
+  /* Número */
+
+  .career-details__number {
+    margin-top: 3px;
+
+    font-size: 40px;
+  }
+
+
+  /* Icono */
+
+  .career-details__icon {
+    width: 52px;
+    height: 52px;
+  }
+
+
+  /* heading */
+
+  .career-details__card h3 {
+    margin-top: 10px;
+    margin-bottom: 4px;
+
+    font-size: 18px;
+  }
+
+
+  /* descripción */
+
+  .career-details__card p {
+    padding-right: 18px;
+
+    font-size: 13px;
+
+    line-height: 1.43;
+  }
+
+
+  /* ==========================================================
+     FRASE INFERIOR IZQUIERDA
+     ========================================================== */
+
+  .career-details__script--bottom {
+    position: absolute;
+
+    left: -70px;
+    bottom: 0;
+
+    margin: 0;
+
+    font-size: 16px;
+
+    line-height: 1.03;
+  }
+
+
+  /* ==========================================================
+     MOLÉCULA INFERIOR
+     ========================================================== */
+
+  .career-details__molecule {
+    right: -31px;
+    bottom: -26px;
+
+    width: 142px;
+  }
+
+}
+
+/* ============================================================
+   MOBILE - PERFIL PROFESIONAL
+   Indicadores a la izquierda + profesional a la derecha
+   ============================================================ */
+
+@media (max-width: 639px) {
+
+  /* ----------------------------------------------------------
+     SECCIÓN
+     ---------------------------------------------------------- */
+
+  .program-profile {
+    padding: 34px 0 0;
+
+    overflow: hidden;
+
+    background:
+      radial-gradient(
+        circle at 88% 43%,
+        rgba(177, 247, 236, 0.34),
+        transparent 32%
+      ),
+      linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ffffff 74%,
+        #f4fffc 100%
+      );
+  }
+
+  .program-profile > .container {
+    width: calc(100% - 30px);
+    max-width: 520px;
+  }
+
+
+  /* ==========================================================
+     CONVERTIMOS LOS WRAPPERS EN "TRANSPARENTES" PARA PODER
+     ACOMODAR INTRO / INDICADORES / CARD / IMAGEN EN EL MISMO GRID
+     ========================================================== */
+
+  .program-profile__grid {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      145px;
+
+    grid-template-rows:
+      auto
+      auto
+      auto
+      auto;
+
+    column-gap: 8px;
+    row-gap: 0;
+
+    align-items: end;
+  }
+
+  .program-profile__panel,
+  .program-profile__intro {
+    display: contents;
+  }
+
+
+  /* ==========================================================
+     EYEBROW
+     ========================================================== */
+
+  .program-profile__eyebrow {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    margin: 0 0 13px;
+
+    gap: 10px;
+
+    font-size: 0.72rem;
+  }
+
+  .program-profile__eyebrow-rule {
+    width: 42px;
+  }
+
+
+  /* ==========================================================
+     TÍTULO
+     ========================================================== */
+
+  .program-profile__title {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    margin: 0 0 24px;
+
+    font-size: clamp(
+      1.95rem,
+      9.5vw,
+      2.55rem
+    );
+
+    line-height: 1.07;
+
+    letter-spacing: -0.045em;
+  }
+
+  .program-profile__title-line {
+    display: block;
+  }
+
+
+  /* ==========================================================
+     INDICADORES
+     LADO IZQUIERDO DE LA PROFESIONAL
+     ========================================================== */
+
+  .program-profile__indicators {
+    grid-column: 1;
+    grid-row: 3;
+
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 4px 4px 10px 0;
+
+    list-style: none;
+  }
+
+
+  /* cada beneficio */
+
+  .program-profile__indicators li {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+      42px
+      minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 9px;
+
+    min-width: 0;
+
+    padding: 0;
+
+    border: 0;
+  }
+
+
+  /* separador muy sutil */
+
+  .program-profile__indicators li:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50px;
+    right: 4px;
+    bottom: -7px;
+
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 178, 168, 0.18),
+        transparent
+      );
+  }
+
+
+  /* círculo icono */
+
+  .program-profile__indicator-icon {
+    width: 42px;
+    height: 42px;
+
+    flex: none;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    color: #079e99;
+
+    background:
+      linear-gradient(
+        145deg,
+        #e8fdfa,
+        #cef8f2
+      );
+
+    box-shadow:
+      0 5px 14px
+      rgba(0, 143, 137, 0.08);
+  }
+
+
+  .program-profile__indicator-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+
+  /* texto */
+
+  .program-profile__indicators li > span:last-child {
+    min-width: 0;
+
+    color: #082d45;
+
+    font-size: 0.73rem;
+    font-weight: 700;
+
+    line-height: 1.3;
+  }
+
+
+  /* ==========================================================
+     PROFESIONAL - COLUMNA DERECHA
+     ========================================================== */
+
+  .program-profile__visual {
+    grid-column: 2;
+    grid-row: 3;
+
+    position: relative;
+
+    align-self: end;
+
+    width: 145px;
+    height: 250px;
+    min-height: 250px;
+
+    margin: 0;
+
+    overflow: visible;
+  }
+
+
+  /* fondo suave detrás de profesional */
+
+  .program-profile__visual::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    right: -28px;
+    bottom: 0;
+
+    width: 180px;
+    height: 205px;
+
+    border-radius:
+      55% 0 0 0;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(223, 255, 249, 0.15),
+        rgba(168, 246, 232, 0.60)
+      );
+
+    clip-path:
+      polygon(
+        35% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+      );
+  }
+
+
+  /* Imagen */
+
+  .program-profile__visual img {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: auto;
+    height: 250px;
+    max-width: none;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  /* frase manuscrita */
+
+  .program-profile__visual-caption {
+    position: absolute;
+
+    top: 81px;
+    right: -2px;
+
+    margin: 0;
+
+    font-size: 0.77rem;
+
+    line-height: 1.02;
+
+    transform:
+      rotate(-8deg);
+
+    opacity: 0.82;
+  }
+
+  .program-profile__visual-caption::after {
+    width: 38px;
+  }
+
+
+  /* ==========================================================
+     CARD DESCRIPTIVA
+     ABAJO A TODO EL ANCHO
+     ========================================================== */
+
+  .program-profile__copy-card {
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    position: relative;
+
+    margin: 0 0 28px;
+
+    padding:
+      17px
+      18px
+      18px
+      34px;
+
+    border-radius: 14px;
+
+    background:
+      rgba(255, 255, 255, 0.97);
+
+    box-shadow:
+      0 10px 28px
+      rgba(13, 112, 108, 0.06);
+  }
+
+
+  .program-profile__copy-card::before {
+    top: 18px;
+    bottom: 18px;
+
+    left: 9px;
+
+    width: 4px;
+  }
+
+
+  .program-profile__quote-icon {
+    width: 37px;
+    height: 37px;
+
+    margin-bottom: 8px;
+
+    padding: 10px;
+  }
+
+
+  .program-profile__copy {
+    font-size: 0.82rem;
+
+    line-height: 1.48;
+  }
+
+  .program-profile__copy p {
+    margin-bottom: 11px;
+  }
+
+
+  /* ==========================================================
+     DECORACIONES
+     ========================================================== */
+
+  .program-profile__molecule--left {
+    left: -40px;
+    bottom: 7px;
+
+    width: 85px;
+
+    opacity: 0.23;
+  }
+
+  .program-profile__molecule--right,
+  .program-profile__capsule {
+    display: none;
+  }
+
 }
