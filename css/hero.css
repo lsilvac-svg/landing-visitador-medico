@@ -1,10 +1,14 @@
 /* ============================================================
-   HERO — Mobile First
-   Composición basada en la referencia visual: eyebrow + título;
-   subtítulo + bullets + persona; prueba social; formulario con
-   badge flotante. Debajo del hero: franja de indicadores.
-   Módulo dueño único de la sección hero.
+   HERO — LIMPIO Y CONSOLIDADO
+   - Base mobile-first.
+   - Tablet 640–1199 px.
+   - Desktop >= 1200 px.
+   - Sin revisiones responsive obsoletas.
    ============================================================ */
+
+
+/* HERO BASE */
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -12,13 +16,11 @@
   scroll-margin-top: 58px;
   color: var(--color-navy);
   background-color: #c9f3f0;
-  background-image:
-    radial-gradient(circle at 57% 18%, rgba(255,255,255,.82) 0 1.5px, transparent 2px),
+  background-image: radial-gradient(circle at 57% 18%, rgba(255,255,255,.82) 0 1.5px, transparent 2px),
     radial-gradient(circle at 94% 9%, rgba(255,255,255,.68) 0 2.5px, transparent 3px),
     linear-gradient(115deg, #ddf9f7 0%, #c0efed 58%, #d6f7f4 100%);
 }
 
-/* Blob suave detrás de la persona + anillo decorativo superior derecho */
 .hero::before,
 .hero::after {
   content: "";
@@ -44,11 +46,9 @@
   border: 1px solid rgba(255,255,255,.32);
 }
 
-/* ------------------------------------------------------------
-   Layout mobile (< 640px): flujo normal — título; foto superpuesta
-   (detrás de los bullets, que la cubren parcialmente, igual que en
-   la referencia); bullets a ancho completo; prueba social; formulario.
-   ------------------------------------------------------------ */
+
+/* CONTENEDOR */
+
 .hero__content {
   position: relative;
   width: 100%;
@@ -58,8 +58,7 @@
   padding: 22px 18px 28px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 140px;
-  grid-template-areas:
-    "title title"
+  grid-template-areas: "title title"
     "rule rule"
     "highlights visual"
     "proof proof"
@@ -73,12 +72,15 @@
   display: contents;
 }
 
-/* En mobile la referencia no muestra el eyebrow con texto: solo un
-   guion corto debajo del título (hero__title-rule). El eyebrow con
-   texto se reserva para tablet/desktop. */
+
+/* EYEBROW */
+
 .hero__eyebrow {
   display: none;
 }
+
+
+/* TÍTULO */
 
 .hero__title {
   grid-area: title;
@@ -91,10 +93,6 @@
   font-weight: 800;
   line-height: 1.16;
   letter-spacing: -.03em;
-  /* .hero__title comparte selector con la utilidad de clamp de 3 líneas
-     (utilities.css), pensada para copys libres de una sola cadena de
-     texto. Aquí el título ya viene partido a mano en 2 <span> de línea,
-     así que se anula el recorte para que no trunque con "…". */
   display: block;
   -webkit-box-orient: unset;
   -webkit-line-clamp: unset;
@@ -124,11 +122,15 @@
   background: var(--color-gold);
 }
 
-/* El subtítulo se reserva para tablet/desktop: en mobile la composición
-   prioriza título + persona + bullets + prueba social + formulario. */
+
+/* SUBTÍTULO */
+
 .hero__lead {
   display: none;
 }
+
+
+/* BENEFICIOS */
 
 .hero__highlights {
   grid-area: highlights;
@@ -176,6 +178,9 @@
   height: 18px;
 }
 
+
+/* PROFESIONAL */
+
 .hero__visual {
   grid-area: visual;
   position: relative;
@@ -190,9 +195,6 @@
   border-radius: 18px;
 }
 
-/* El asset fuente es un retrato de cuerpo completo; se amplía y ancla
-   arriba para mostrar cabeza + hombros + torso con la bata, creciendo
-   junto con el alto de la columna de highlights. */
 .hero__visual img {
   position: absolute;
   z-index: 1;
@@ -212,11 +214,12 @@
   display: none;
 }
 
-/* Leyenda manuscrita junto a la foto: solo desde tablet, donde hay
-   espacio suficiente sin competir con el resto de la composición. */
 .hero__visual-caption {
   display: none;
 }
+
+
+/* PRUEBA SOCIAL */
 
 .hero__social-proof {
   grid-area: proof;
@@ -270,7 +273,9 @@
   font-size: .82rem;
 }
 
-/* Formulario */
+
+/* FORMULARIO */
+
 .hero__form-card {
   grid-area: form;
   position: relative;
@@ -284,7 +289,6 @@
   box-shadow: 0 10px 24px rgba(0, 91, 88, .16);
 }
 
-/* Badge flotante amarillo, solo visible en desktop (ver breakpoint 960px) */
 .hero__form-badge {
   display: none;
   align-items: center;
@@ -479,11 +483,9 @@
   margin-top: 2px;
 }
 
-/* ------------------------------------------------------------
-   Franja de indicadores institucionales (+25 años, +1,200
-   egresados, alianzas). Oculta en mobile, franja de 3 columnas
-   desde tablet, con corte diagonal superior.
-   ------------------------------------------------------------ */
+
+/* INDICADORES */
+
 .hero__stats {
   display: none;
 }
@@ -495,1339 +497,1013 @@
   color: var(--color-gold);
 }
 
-/* ------------------------------------------------------------
-   Tablet (>= 640px): copy en una sola columna de ancho completo,
-   persona + prueba social + formulario en la fila siguiente.
-   ------------------------------------------------------------ */
-@media (min-width: 640px) {
-  .hero {
-    scroll-margin-top: 90px;
-  }
-
-  .hero__content {
-    max-width: none;
-    padding: 32px 28px 40px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(19rem, .9fr);
-    grid-template-areas:
-      "eyebrow eyebrow"
-      "title title"
-      "lead proof"
-      "highlights form"
-      "visual form";
-    column-gap: 28px;
-    row-gap: 18px;
-    align-items: start;
-  }
-
-  .hero__eyebrow {
-    grid-area: eyebrow;
-    display: flex;
-    font-size: .72rem;
-  }
-
-  .hero__title-rule {
-    display: none;
-  }
-
-  .hero__title {
-    grid-area: title;
-    max-width: none;
-    padding-right: 0;
-    font-size: clamp(2.1rem, 5.2vw, 2.7rem);
-  }
-
-  .hero__title-line {
-    white-space: nowrap;
-  }
-
-  .hero__lead {
-    grid-area: lead;
-    display: block;
-    max-width: 420px;
-    font-size: .92rem;
-  }
-
-  .hero__highlights {
-    grid-area: highlights;
-    position: static;
-    margin: 0;
-  }
-
-  .hero__highlights li {
-    font-size: .82rem;
-  }
-
-  .hero__social-proof {
-    grid-area: proof;
-    position: static;
-    max-width: none;
-    margin: 0;
-  }
-
-  .hero__visual {
-    grid-area: visual;
-    position: relative;
-    z-index: auto;
-    top: auto;
-    right: auto;
-    width: 100%;
-    max-width: min(100%, 23rem);
-    min-height: 22rem;
-    max-height: none;
-    margin: 0 auto;
-    overflow: visible;
-  }
-
-  .hero__visual img {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    transform: none;
-    object-fit: contain;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .hero__visual-deco {
-    display: block;
-  }
-
-  .hero__visual-caption {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    bottom: 6%;
-    left: -8%;
-    max-width: 130px;
-    margin: 0;
-    color: #0a4a52;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-style: italic;
-    font-size: .86rem;
-    line-height: 1.25;
-    text-decoration: underline;
-    text-decoration-color: var(--color-gold);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    transform: rotate(-4deg);
-  }
-
-  .hero__form-card {
-    grid-area: form;
-    align-self: start;
-    margin: 0;
-  }
-
-  .hero__form-header {
-    padding: 26px 24px 16px;
-  }
-
-  .hero__form-title {
-    max-width: none;
-    font-size: 1.85rem;
-  }
-
-  .hero__form-subtitle {
-    font-size: .78rem;
-  }
-
-  .hero__form-body {
-    padding: 18px 24px 20px;
-  }
-
-  .form-input,
-  .form-select {
-    min-height: 46px;
-    height: 46px;
-    padding: 11px 15px;
-    font-size: .8rem;
-  }
-
-  .hero__submit {
-    min-height: 54px;
-    padding: 10px 18px;
-    font-size: .9rem;
-  }
-
-  .form-label {
-    font-size: .66rem;
-  }
-
-  .form-privacy {
-    font-size: .62rem;
-  }
-
-  .hero__stats {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    padding: 18px 28px;
-    color: #fff;
-    background: linear-gradient(105deg, #00757d, #00616e);
-    clip-path: polygon(0 18px, 100% 0, 100% 100%, 0 100%);
-  }
-
-  .hero__stats div {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 21px;
-    border-right: 1px solid rgba(207, 255, 249, .34);
-  }
-
-  .hero__stats div:last-child {
-    border-right: 0;
-  }
-
-  .hero__stats strong {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: .95rem;
-  }
-
-  .hero__stats span {
-    font-size: .63rem;
-    color: #d0f5ef;
-  }
-}
-
-/* ------------------------------------------------------------
-   Desktop (>= 960px): tres columnas reales, como la referencia
-   — copy / persona / formulario.
-   ------------------------------------------------------------ */
-@media (min-width: 960px) {
-  .hero {
-    min-height: 0;
-    scroll-margin-top: 104px;
-  }
-
-  .hero::before {
-    width: 460px;
-    height: 460px;
-    left: 21%;
-    top: 60px;
-  }
-
-  .hero::after {
-    width: 300px;
-    height: 300px;
-    right: 30%;
-    top: -160px;
-  }
-
-  .hero__content {
-    width: min(100%, 1280px);
-    min-height: 700px;
-    padding: 28px 40px 0;
-    grid-template-columns: 400px minmax(300px, 1fr) 330px;
-    grid-template-areas: none;
-    gap: 12px;
-    align-items: stretch;
-  }
-
-  .hero__copy {
-    display: block;
-    grid-column: auto;
-    align-self: start;
-    max-width: 380px;
-    margin-top: 40px;
-  }
-
-  .hero__title {
-    position: relative;
-    z-index: 1;
-    grid-column: auto;
-    grid-area: auto;
-    width: 100%;
-    max-width: none;
-    font-size: clamp(1.6rem, 1.95vw, 1.9rem);
-    line-height: 1.14;
-  }
-
-  .hero__title-line {
-    white-space: nowrap;
-  }
-
-  .hero__eyebrow {
-    font-size: .74rem;
-    margin-bottom: 4px;
-  }
-
-  .hero__visual-deco--molecule {
-    top: -30px;
-    right: 10px;
-    width: 100px;
-    height: 100px;
-  }
-
-  .hero__visual-deco--pill {
-    bottom: 36%;
-    left: -10px;
-    width: 76px;
-  }
-
-  .hero__lead {
-    grid-area: auto;
-    max-width: 330px;
-    margin: 14px 0 18px;
-    color: #174d6c;
-    font-size: .96rem;
-    line-height: 1.38;
-  }
-
-  .hero__highlights {
-    grid-area: auto;
-    gap: 14px;
-    margin-bottom: 22px;
-  }
-
-  .hero__highlights li {
-    font-size: .84rem;
-  }
-
-  .hero__highlight-icon {
-    width: 46px;
-    height: 46px;
-  }
-
-  .hero__highlight-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .hero__social-proof {
-    grid-area: auto;
-    max-width: 340px;
-  }
-
-  .hero__visual {
-    grid-area: auto;
-    grid-column: auto;
-    width: min(100%, 460px);
-    max-width: none;
-    height: 680px;
-    margin: 0;
-    align-self: end;
-    justify-self: center;
-  }
-
-  .hero__visual img {
-    width: auto;
-    height: 100%;
-    max-width: 100%;
-    max-height: 650px;
-  }
-
-  .hero__visual-caption {
-    bottom: 9%;
-    left: -14%;
-    max-width: 150px;
-    font-size: .98rem;
-  }
-
-  .hero__form-card {
-    grid-area: auto;
-    grid-column: auto;
-    width: 330px;
-    max-width: 330px;
-    margin: 46px 0 18px;
-    align-self: start;
-    justify-self: end;
-    border-radius: 18px;
-  }
-
-  .hero__form-badge {
-    display: flex;
-    position: absolute;
-    z-index: 3;
-    top: -22px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .hero__form-header {
-    padding: 34px 24px 18px;
-    border-bottom: none;
-  }
-
-  .hero__form-title {
-    font-size: 1.9rem;
-    line-height: 1.05;
-  }
-
-  .hero__form-subtitle {
-    display: none;
-  }
-
-  .hero__form-body {
-    padding: 18px 24px 22px;
-  }
-
-  .hero__stats {
-    margin-top: -1px;
-    padding: 19px max(32px, calc((100% - 1280px) / 2));
-  }
-
-  .hero__stats div {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .hero__stats strong {
-    font-size: 1rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero *,
-  .hero *::before,
-  .hero *::after {
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
 
 /* ============================================================
-   HERO — TABLET CORREGIDO
-   SOLO 640px → 959px
-
-   Objetivos:
-   - Eliminar espacios dispersos.
-   - Integrar la profesional junto a los beneficios.
-   - Evitar que la imagen quede flotando demasiado abajo.
-   - Mantener formulario compacto a la derecha.
-   - NO modifica mobile ni desktop.
+   TABLET / LAPTOP PEQUEÑO — 640–1199 px
    ============================================================ */
 
-@media (min-width: 640px) and (max-width: 959px) {
-
-  /* ==========================================================
-     CONTENEDOR GENERAL
-     ========================================================== */
+@media (min-width: 640px) and (max-width: 1199px) {
 
   .hero {
     position: relative;
-
+    isolation: isolate;
+    width: 100%;
     min-height: auto;
-
     overflow: hidden;
-
-    scroll-margin-top: 90px;
-
-    background:
-      radial-gradient(
-        circle at 48% 48%,
-        rgba(255,255,255,.55),
-        transparent 34%
+    scroll-margin-top: 88px;
+    background: radial-gradient(
+        circle at 74% 38%,
+        rgba(255,255,255,.42) 0%,
+        rgba(255,255,255,.16) 30%,
+        transparent 52%
       ),
       linear-gradient(
         115deg,
-        #ddf9f7 0%,
-        #c0efed 58%,
-        #d6f7f4 100%
+        #defaf7 0%,
+        #c8f4ef 52%,
+        #d7f9f6 100%
       );
   }
 
-
-  /* círculo decorativo */
-
   .hero::before {
-    width: 360px;
-    height: 360px;
-
-    left: 28%;
-    top: 120px;
-
-    background:
-      radial-gradient(
-        circle,
-        rgba(255,255,255,.52) 0%,
-        rgba(255,255,255,.16) 60%,
-        transparent 75%
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 49%;
+    top: 210px;
+    width: clamp(410px, 54vw, 610px);
+    height: clamp(410px, 54vw, 610px);
+    border-radius: 50%;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.28),
+        rgba(83,224,212,.32)
       );
+    pointer-events: none;
   }
 
   .hero::after {
-    width: 190px;
-    height: 190px;
-
-    right: -80px;
-    top: 45px;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 80px;
+    right: -110px;
+    width: 245px;
+    height: 245px;
+    border: 1px solid
+      rgba(255,255,255,.28);
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: none;
   }
-
-
-  /* ==========================================================
-     GRID PRINCIPAL
-     ========================================================== */
 
   .hero__content {
     position: relative;
-
+    z-index: 3;
     width: min(
-      calc(100% - 40px),
-      920px
-    );
-
+        calc(100% - 56px),
+        1060px
+      );
     max-width: none;
-
     margin-inline: auto;
-
-    padding:
-      34px
+    padding: 38px
       0
-      38px;
-
+      0;
     display: grid;
-
-    /*
-       Izquierda = contenido
-       Derecha   = formulario
-    */
-
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(285px, 34%);
-
-    grid-template-areas:
-      "eyebrow form"
-      "title   form"
-      "lead    form"
-      "stage   form"
-      "proof   form";
-
-    column-gap: clamp(
-      18px,
-      3vw,
-      32px
-    );
-
+    grid-template-columns: 1fr;
+    grid-template-areas: "eyebrow"
+      "title"
+      "lead"
+      "stage"
+      "form";
     row-gap: 0;
-
     align-items: start;
   }
-
-
-  /*
-   * Permite posicionar individualmente los elementos internos
-   * de .hero__copy en el grid principal.
-   */
 
   .hero__copy {
     display: contents;
   }
 
-
-  /* ==========================================================
-     EYEBROW
-     ========================================================== */
-
   .hero__eyebrow {
     grid-area: eyebrow;
-
     display: flex;
     align-items: center;
-
-    gap: 8px;
-
-    margin:
-      4px
+    gap: 14px;
+    margin: 0
       0
-      8px;
-
-    color: #0b7d7b;
-
-    font-size: .68rem;
+      13px;
+    color: #104e69;
+    font-size: clamp(
+        .72rem,
+        1.25vw,
+        .86rem
+      );
     font-weight: 800;
-
-    letter-spacing: .08em;
-
+    line-height: 1;
+    letter-spacing: .15em;
     text-transform: uppercase;
   }
 
-
   .hero__eyebrow-dash {
-    width: 25px;
-    height: 2px;
-
+    display: block;
+    width: 42px;
+    height: 5px;
     flex: none;
-
     border-radius: 999px;
-
-    background: #08aaa5;
+    background: #ffc20b;
   }
-
-
-  /* regla mobile no se usa */
 
   .hero__title-rule {
     display: none;
   }
 
-
-  /* ==========================================================
-     TÍTULO
-     ========================================================== */
-
   .hero__title {
     grid-area: title;
-
-    width: 100%;
-    max-width: 100%;
-
-    margin: 0;
-
-    padding: 0;
-
-    color: var(--color-navy);
-
-    font-size: clamp(
-      1.75rem,
-      4vw,
-      2.35rem
-    );
-
-    line-height: 1.08;
-
-    letter-spacing: -.04em;
-
     position: relative;
-    z-index: 5;
+    z-index: 6;
+    width: 100%;
+    max-width: 940px;
+    margin: 0;
+    padding: 0;
+    color: #073b5a;
+    font-family: var(--font-heading);
+    font-size: clamp(
+        2.45rem,
+        5vw,
+        3.55rem
+      );
+    font-weight: 800;
+    line-height: 1.035;
+    letter-spacing: -.05em;
   }
-
-
-  /*
-   * En tablet dejamos que las líneas puedan adaptarse.
-   * Evita desbordes en tablets de 640–700px.
-   */
 
   .hero__title-line {
     display: block;
-
     white-space: normal;
   }
 
-
   .hero__title-accent {
-    color: var(--color-cyan);
+    color: #08a7a2;
   }
-
-
-  /* ==========================================================
-     SUBTÍTULO
-     ========================================================== */
 
   .hero__lead {
     grid-area: lead;
-
     display: block;
-
-    max-width: 420px;
-
-    margin:
-      11px
+    width: min(100%, 720px);
+    max-width: none;
+    margin: 13px
       0
-      18px;
-
-    color: #174d6c;
-
+      0;
+    color: #174f6b;
     font-size: clamp(
-      .78rem,
-      1.5vw,
-      .9rem
-    );
-
-    line-height: 1.4;
-
-    position: relative;
-    z-index: 5;
+        .95rem,
+        1.7vw,
+        1.18rem
+      );
+    line-height: 1.38;
   }
 
-
-  /* ==========================================================
-     STAGE
-     BENEFICIOS + PROFESIONAL EN LA MISMA ZONA
-     ========================================================== */
-
-
-  /* ----------------------------------------------------------
-     BENEFICIOS
-     ---------------------------------------------------------- */
+  .hero__highlights,
+  .hero__visual,
+  .hero__social-proof {
+    grid-area: stage;
+  }
 
   .hero__highlights {
-    grid-area: stage;
-
     position: relative;
-    z-index: 4;
-
-    align-self: center;
-
-    width: 58%;
-
-    min-width: 0;
-
-    margin: 0;
-
-    padding:
-      3px
+    z-index: 10;
+    justify-self: start;
+    align-self: start;
+    width: 42%;
+    min-width: 275px;
+    margin: 32px
       0
-      4px;
-
+      0;
+    padding: 0;
     display: grid;
-
-    gap: 9px;
-
+    gap: 14px;
     list-style: none;
   }
 
-
   .hero__highlights li {
-    min-width: 0;
-    min-height: 59px;
-
-    padding:
-      8px
-      9px;
-
+    position: relative;
+    width: 100%;
+    min-height: clamp(
+        75px,
+        7.5vw,
+        92px
+      );
+    padding: 11px
+      48px
+      11px
+      14px;
     display: flex;
     align-items: center;
-
-    gap: 9px;
-
+    gap: 16px;
     border: 1px solid
-      rgba(6, 117, 122, .055);
-
-    border-radius: 13px;
-
-    color: #153a4f;
-
-    background:
-      rgba(
-        255,
-        255,
-        255,
-        .96
-      );
-
-    box-shadow:
-      0 8px 20px
-      rgba(
-        0,
-        91,
-        88,
-        .085
-      );
-
+      rgba(0,135,130,.05);
+    border-radius: 18px;
+    color: #0b4362;
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 9px 24px
+      rgba(17,116,111,.08);
     font-size: clamp(
-      .64rem,
-      1.2vw,
-      .76rem
-    );
-
+        .83rem,
+        1.5vw,
+        1rem
+      );
     font-weight: 700;
-
-    line-height: 1.22;
-
-    overflow-wrap: normal;
+    line-height: 1.23;
+    overflow: hidden;
   }
 
-
-  /* iconos */
+  .hero__highlights li::after {
+    content: "›";
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    color: #08a7a2;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    transform: translateY(-53%);
+  }
 
   .hero__highlight-icon {
-    width: 38px;
-    height: 38px;
-
-    flex: 0 0 38px;
-
+    width: clamp(
+        52px,
+        5.8vw,
+        66px
+      );
+    height: clamp(
+        52px,
+        5.8vw,
+        66px
+      );
+    flex: 0 0
+      clamp(
+        52px,
+        5.8vw,
+        66px
+      );
     display: grid;
     place-items: center;
-
-    border-radius: 11px;
-
+    border-radius: 15px;
     color: #ffffff;
-
-    background: #079e99;
+    background: linear-gradient(
+        145deg,
+        #07aaa3,
+        #008f8b
+      );
+    box-shadow: 0 8px 18px
+      rgba(0,132,126,.13);
   }
-
 
   .hero__highlight-icon svg {
-    width: 19px;
-    height: 19px;
+    width: clamp(
+        26px,
+        3vw,
+        32px
+      );
+    height: clamp(
+        26px,
+        3vw,
+        32px
+      );
   }
 
-
-  /* ==========================================================
-     PROFESIONAL
-     Ahora comparte la misma fila que los beneficios.
-     ========================================================== */
-
   .hero__visual {
-    grid-area: stage;
-
     position: relative;
-
-    z-index: 2;
-
-    align-self: stretch;
+    z-index: 5;
     justify-self: end;
-
-    width: 47%;
-
-    max-width: 220px;
-
-    min-width: 125px;
-
-    height: 235px;
-    min-height: 235px;
-
-    margin: 0;
-
+    align-self: start;
+    width: 64%;
+    max-width: none;
+    height: clamp(
+        500px,
+        56vw,
+        650px
+      );
+    min-height: clamp(
+        500px,
+        56vw,
+        650px
+      );
+    margin: -24px
+      -3%
+      0
+      0;
     overflow: visible;
-
     border-radius: 0;
   }
 
-
-  /* halo detrás de la profesional */
-
   .hero__visual::before {
     content: "";
-
     position: absolute;
-
     z-index: -1;
-
-    right: -15%;
+    left: 52%;
     bottom: 0;
-
-    width: 125%;
-    height: 78%;
-
-    border-radius:
-      55% 50% 0 0;
-
-    background:
-      radial-gradient(
-        circle at 50% 50%,
-        rgba(255,255,255,.62),
-        rgba(255,255,255,.08) 68%,
-        transparent 70%
+    width: clamp(
+        410px,
+        47vw,
+        560px
       );
+    height: clamp(
+        410px,
+        47vw,
+        560px
+      );
+    border-radius: 50%;
+    background: linear-gradient(
+        145deg,
+        rgba(224,255,251,.30),
+        rgba(83,222,211,.34)
+      );
+    transform: translateX(-50%);
   }
-
-
-  /* Imagen */
 
   .hero__visual img {
     position: absolute;
-
+    z-index: 5;
     top: auto;
-    right: -2%;
+    right: auto;
+    left: 53%;
     bottom: 0;
-    left: auto;
-
     width: auto;
     max-width: none;
-
-    height: 250px;
-
+    height: 113%;
     object-fit: contain;
     object-position: center bottom;
-
-    transform: none;
-
-    -webkit-mask-image:
-      linear-gradient(
-        to bottom,
-        #000 0%,
-        #000 92%,
-        transparent 100%
-      );
-
-    mask-image:
-      linear-gradient(
-        to bottom,
-        #000 0%,
-        #000 92%,
-        transparent 100%
-      );
+    transform: translateX(-50%);
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
+  .hero__visual-deco--pill {
+    display: none;
+  }
 
-  /* ==========================================================
-     DECORACIÓN DE IMAGEN
-     ========================================================== */
+  .hero__visual-caption {
+    display: none;
+  }
 
-  .hero__visual-deco {
-    position: absolute;
-
+  .hero__visual-deco--molecule {
     display: block;
-
+    position: absolute;
+    z-index: 1;
+    top: 8%;
+    right: 4%;
+    width: clamp(
+        75px,
+        9vw,
+        105px
+      );
+    height: clamp(
+        75px,
+        9vw,
+        105px
+      );
+    opacity: .20;
     pointer-events: none;
   }
 
-
-  .hero__visual-deco--molecule {
-    z-index: 0;
-
-    top: 2px;
-    right: -7px;
-
-    width: 65px;
-    height: 65px;
-
-    opacity: .55;
-  }
-
-
-  .hero__visual-deco--pill {
-    z-index: 0;
-
-    left: -1px;
-    bottom: 27px;
-
-    width: 48px;
-
-    opacity: .5;
-
-    transform: rotate(-25deg);
-  }
-
-
-  /* leyenda manuscrita */
-
-  .hero__visual-caption {
-    position: absolute;
-
-    z-index: 4;
-
-    display: block;
-
-    right: -8px;
-    bottom: 15px;
-    left: auto;
-
-    width: 105px;
-    max-width: 105px;
-
-    margin: 0;
-
-    color: #0a6568;
-
-    font-family:
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size: .63rem;
-
-    font-style: italic;
-
-    line-height: 1.22;
-
-    text-align: center;
-
-    text-decoration: underline;
-
-    text-decoration-color:
-      var(--color-gold);
-
-    text-decoration-thickness: 1.5px;
-
-    text-underline-offset: 3px;
-
-    transform:
-      rotate(-4deg);
-  }
-
-
-  /* ==========================================================
-     PRUEBA SOCIAL
-     ========================================================== */
-
   .hero__social-proof {
-    grid-area: proof;
-
     position: relative;
-    z-index: 5;
-
-    width: 100%;
-
-    max-width: none;
-
-    min-height: 58px;
-
-    margin:
-      12px
+    z-index: 12;
+    justify-self: start;
+    align-self: end;
+    width: 46%;
+    min-width: 310px;
+    min-height: clamp(
+        67px,
+        7vw,
+        78px
+      );
+    margin: 0
       0
-      0;
-
-    padding:
-      9px
-      11px;
-
+      22px;
+    padding: 11px
+      17px;
     display: flex;
     align-items: center;
-
-    gap: 9px;
-
-    border-radius: 11px;
-
-    background:
-      rgba(
-        255,
-        255,
-        255,
-        .97
-      );
-
-    box-shadow:
-      0 7px 18px
-      rgba(
-        31,
-        129,
-        126,
-        .07
-      );
+    gap: 14px;
+    border: 0;
+    border-radius: 18px;
+    background: rgba(255,255,255,.98);
+    box-shadow: 0 9px 24px
+      rgba(17,116,111,.075);
   }
 
+  .hero__avatars {
+    display: flex;
+    flex-shrink: 0;
+    padding-right: 13px;
+    border-right: 1px solid
+      rgba(8,45,69,.18);
+  }
 
   .hero__avatars img {
-    width: 27px;
-    height: 27px;
+    width: clamp(
+        33px,
+        3.7vw,
+        42px
+      );
+    height: clamp(
+        33px,
+        3.7vw,
+        42px
+      );
+    margin-left: -8px;
+    border: 2px solid
+      #ffffff;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
+  .hero__avatars img:first-child {
+    margin-left: 0;
+  }
+
+  .hero__proof-copy {
+    min-width: 0;
+  }
 
   .hero__rating-count {
-    font-size: .61rem;
-
-    line-height: 1.26;
+    color: #345d72;
+    font-size: clamp(
+        .64rem,
+        1.1vw,
+        .76rem
+      );
+    line-height: 1.28;
   }
-
 
   .hero__rating-count strong {
-    font-size: .76rem;
+    display: block;
+    margin-bottom: 2px;
+    color: #009e99;
+    font-family: var(--font-heading);
+    font-size: clamp(
+        .89rem,
+        1.55vw,
+        1.08rem
+      );
+    font-weight: 800;
   }
-
-
-  /* ==========================================================
-     FORMULARIO
-     ========================================================== */
 
   .hero__form-card {
     grid-area: form;
-
     position: relative;
-    z-index: 6;
-
-    align-self: start;
-    justify-self: stretch;
-
+    z-index: 15;
+    justify-self: center;
     width: 100%;
     max-width: none;
-
-    margin:
-      2px
-      0
-      0;
-
-    overflow: visible;
-
-    border-radius: 17px;
-
-    box-shadow:
-      0 16px 36px
-      rgba(
-        0,
-        91,
-        88,
-        .15
+    margin: -1px
+      auto
+      28px;
+    overflow: hidden;
+    border-radius: 24px;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #008e91 0%,
+        #00aaa3 100%
       );
+    box-shadow: 0 15px 35px
+      rgba(0,101,98,.14);
   }
-
-
-  /* El badge sigue oculto en tablet */
 
   .hero__form-badge {
     display: none;
   }
 
-
-  /* encabezado */
-
   .hero__form-header {
-    padding:
-      21px
-      20px
-      13px;
-
-    border-bottom:
-      1px solid
-      rgba(
-        255,
-        255,
-        255,
-        .14
-      );
+    position: relative;
+    padding: 28px
+      38px
+      16px;
+    border-bottom: 0;
   }
 
+  .hero__form-header::before {
+    content: "✎";
+    float: left;
+    width: 68px;
+    height: 68px;
+    margin: -4px
+      22px
+      4px
+      0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #08647a;
+    background: linear-gradient(
+        145deg,
+        #ffd534,
+        #ffbf0b
+      );
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
 
   .hero__form-title {
     max-width: none;
-
-    margin-bottom: 8px;
-
+    margin: 0
+      0
+      6px;
+    color: #ffffff;
     font-size: clamp(
-      1.25rem,
-      2.6vw,
-      1.55rem
-    );
-
+        1.75rem,
+        3vw,
+        2.25rem
+      );
     line-height: 1.08;
+    letter-spacing: -.035em;
   }
-
 
   .hero__form-title-break {
     display: none;
   }
 
-
   .hero__form-subtitle {
     display: flex;
-
-    font-size: .67rem;
-
-    line-height: 1.23;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,.95);
+    font-size: clamp(
+        .72rem,
+        1.2vw,
+        .84rem
+      );
+    line-height: 1.27;
   }
-
 
   .hero__discount-icon {
     width: 25px;
     height: 25px;
-
-    flex-basis: 25px;
-
-    font-size: .67rem;
+    flex: 0 0
+      25px;
+    color: #0a6577;
+    background: #ffc91b;
   }
-
-
-  /* cuerpo formulario */
 
   .hero__form-body {
-    padding:
-      14px
-      20px
-      18px;
+    clear: both;
+    padding: 13px
+      38px
+      30px;
   }
 
-
-  .form-fields {
-    gap: 8px;
-
-    margin-bottom: 11px;
+  .hero__form-body .form-fields {
+    display: grid;
+    grid-template-columns: repeat(
+        2,
+        minmax(0,1fr)
+      );
+    column-gap: 18px;
+    row-gap: 12px;
+    margin-bottom: 16px;
   }
 
+  .hero__form-body .form-field:last-child {
+    grid-column: 1 / -1;
+  }
 
   .form-label {
-    margin-bottom: 3px;
-
-    font-size: .56rem;
-  }
-
-
-  .form-input,
-  .form-select {
-    min-height: 41px;
-    height: 41px;
-
-    padding:
-      8px
-      12px;
-
-    border-radius: 10px;
-
-    font-size: .72rem;
-  }
-
-
-  .hero__submit {
-    min-height: 46px;
-
-    padding:
-      8px
-      12px;
-
-    border-radius: 11px;
-
-    font-size: .75rem;
-  }
-
-
-  .form-privacy {
-    margin-top: 7px;
-
-    font-size: .52rem;
-
-    line-height: 1.25;
-  }
-
-
-  /* ==========================================================
-     FRANJA DE ESTADÍSTICAS
-     ========================================================== */
-
-  .hero__stats {
-    position: relative;
-
-    z-index: 8;
-
-    display: grid;
-
-    grid-template-columns:
-      repeat(
-        3,
-        minmax(0, 1fr)
-      );
-
-    gap: 0;
-
-    margin: 0;
-
-    padding:
-      17px
-      max(
-        24px,
-        calc((100% - 900px) / 2)
-      );
-
+    display: block;
+    margin-bottom: 5px;
     color: #ffffff;
-
-    background:
-      linear-gradient(
-        105deg,
-        #00757d,
-        #00616e
-      );
-
-    clip-path:
-      polygon(
-        0 14px,
-        100% 0,
-        100% 100%,
-        0 100%
-      );
-  }
-
-
-  .hero__stats > div {
-    min-width: 0;
-
-    padding:
-      0
-      clamp(
-        10px,
-        2vw,
-        20px
-      );
-
-    display: flex;
-    align-items: center;
-
-    gap: 9px;
-
-    border-right:
-      1px solid
-      rgba(
-        207,
-        255,
-        249,
-        .28
-      );
-  }
-
-
-  .hero__stats > div:last-child {
-    border-right: 0;
-  }
-
-
-  .hero__stats-icon {
-    width: 20px;
-    height: 20px;
-
-    flex: 0 0 20px;
-  }
-
-
-  .hero__stats strong {
     font-size: clamp(
-      .72rem,
-      1.4vw,
-      .9rem
-    );
-
+        .62rem,
+        1vw,
+        .71rem
+      );
+    font-weight: 800;
     line-height: 1.1;
   }
 
+  .form-input,
+  .form-select {
+    width: 100%;
+    min-height: clamp(
+        48px,
+        5vw,
+        56px
+      );
+    height: clamp(
+        48px,
+        5vw,
+        56px
+      );
+    padding: 11px
+      17px;
+    border: 0;
+    border-radius: 11px;
+    color: #31576c;
+    background: #ffffff;
+    font-size: clamp(
+        .76rem,
+        1.25vw,
+        .88rem
+      );
+  }
+
+  .hero__submit {
+    position: relative;
+    width: 100%;
+    min-height: clamp(
+        53px,
+        5.3vw,
+        61px
+      );
+    padding: 10px
+      58px
+      10px
+      22px;
+    border-radius: 12px;
+    color: #17354a;
+    background: linear-gradient(
+        180deg,
+        #ffc91b,
+        #ffb90f
+      );
+    box-shadow: none;
+    font-size: clamp(
+        .82rem,
+        1.35vw,
+        .96rem
+      );
+    font-weight: 800;
+  }
+
+  .hero__submit-arrow {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    font-size: 1.3rem;
+    transform: translateY(-50%);
+  }
+
+  .form-privacy {
+    width: 65%;
+    margin: 11px
+      0
+      0;
+    gap: 9px;
+    color: rgba(255,255,255,.93);
+    font-size: clamp(
+        .56rem,
+        .95vw,
+        .67rem
+      );
+    line-height: 1.3;
+  }
+
+  .hero__stats {
+    position: relative;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(
+        3,
+        minmax(0,1fr)
+      );
+    gap: 0;
+    margin: 0;
+    padding: 25px
+      max(
+        40px,
+        calc((100% - 1050px) / 2)
+      );
+    color: #ffffff;
+    background: linear-gradient(
+        100deg,
+        #007079,
+        #006173
+      );
+    clip-path: none;
+  }
+
+  .hero__stats > div {
+    min-width: 0;
+    padding: 0
+      clamp(
+        18px,
+        3vw,
+        36px
+      );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(
+        10px,
+        1.6vw,
+        15px
+      );
+    border-right: 1px solid
+      rgba(255,255,255,.32);
+  }
+
+  .hero__stats > div:first-child {
+    padding-left: 0;
+  }
+
+  .hero__stats > div:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .hero__stats-icon {
+    width: clamp(
+        28px,
+        3.3vw,
+        38px
+      );
+    height: clamp(
+        28px,
+        3.3vw,
+        38px
+      );
+    flex: 0 0
+      clamp(
+        28px,
+        3.3vw,
+        38px
+      );
+    color: #ffffff;
+  }
+
+  .hero__stats strong {
+    display: block;
+    color: #ffffff;
+    font-size: clamp(
+        .82rem,
+        1.5vw,
+        1.08rem
+      );
+    line-height: 1.07;
+  }
 
   .hero__stats span {
     display: block;
-
-    margin-top: 2px;
-
-    color: #d0f5ef;
-
+    margin-top: 3px;
+    color: #d5f5f0;
     font-size: clamp(
-      .48rem,
-      .9vw,
-      .59rem
-    );
-
-    line-height: 1.2;
+        .52rem,
+        .9vw,
+        .65rem
+      );
+    line-height: 1.17;
   }
 
 }
 
-/* ============================================================
-   HERO — DESKTOP PREMIUM
-   Referencia: hero-visitador-medico.png
 
-   SOLO ESCRITORIO >= 1200px
-   NO MODIFICA MOBILE NI TABLET
+/* ============================================================
+   TABLET PEQUEÑA — 640–767 px
+   ============================================================ */
+
+@media (min-width: 640px) and (max-width: 767px) {
+
+  .hero__content {
+    width: calc(100% - 32px);
+    padding-top: 28px;
+  }
+
+  .hero__title {
+    font-size: clamp(
+        2rem,
+        5.3vw,
+        2.55rem
+      );
+  }
+
+  .hero__lead {
+    font-size: .86rem;
+  }
+
+  .hero__highlights {
+    width: 43%;
+    min-width: 225px;
+    margin-top: 26px;
+    gap: 10px;
+  }
+
+  .hero__highlights li {
+    min-height: 65px;
+    padding: 8px
+      38px
+      8px
+      9px;
+    font-size: .71rem;
+    gap: 9px;
+  }
+
+  .hero__highlights li::after {
+    right: 12px;
+    font-size: 1.6rem;
+  }
+
+  .hero__highlight-icon {
+    width: 41px;
+    height: 41px;
+    flex-basis: 41px;
+  }
+
+  .hero__highlight-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero__visual {
+    width: 65%;
+    height: 445px;
+    min-height: 445px;
+    margin-right: -5%;
+  }
+
+  .hero__visual img {
+    left: 55%;
+    height: 109%;
+  }
+
+  .hero__visual::before {
+    width: 355px;
+    height: 355px;
+  }
+
+  .hero__social-proof {
+    width: 45%;
+    min-width: 240px;
+    margin-bottom: 20px;
+    padding: 8px
+      10px;
+  }
+
+  .hero__avatars img {
+    width: 29px;
+    height: 29px;
+  }
+
+  .hero__form-header {
+    padding: 23px
+      25px
+      13px;
+  }
+
+  .hero__form-header::before {
+    width: 55px;
+    height: 55px;
+    margin-right: 15px;
+    font-size: 1.4rem;
+  }
+
+  .hero__form-title {
+    font-size: 1.5rem;
+  }
+
+  .hero__form-body {
+    padding: 12px
+      25px
+      23px;
+  }
+
+}
+
+
+/* ============================================================
+   TABLET MEDIA — 768–899 px
+   ============================================================ */
+
+@media (min-width: 768px) and (max-width: 899px) {
+
+  .hero__visual {
+    width: 65%;
+    height: clamp(
+        510px,
+        63vw,
+        560px
+      );
+    min-height: clamp(
+        510px,
+        63vw,
+        560px
+      );
+  }
+
+  .hero__visual img {
+    height: 114%;
+  }
+
+  .hero__highlights {
+    width: 42%;
+  }
+
+  .hero__social-proof {
+    width: 46%;
+  }
+
+}
+
+
+/* ============================================================
+   TABLET GRANDE — 900–1199 px
+   ============================================================ */
+
+@media (min-width: 900px) and (max-width: 1199px) {
+
+  .hero__content {
+    width: min(
+        calc(100% - 72px),
+        1080px
+      );
+    padding-top: 42px;
+  }
+
+  .hero__title {
+    max-width: 970px;
+    font-size: clamp(
+        2.85rem,
+        4.5vw,
+        3.65rem
+      );
+  }
+
+  .hero__lead {
+    font-size: clamp(
+        1rem,
+        1.45vw,
+        1.17rem
+      );
+  }
+
+  .hero__highlights {
+    width: 41%;
+    margin-top: 38px;
+  }
+
+  .hero__visual {
+    width: 66%;
+    height: clamp(
+        570px,
+        53vw,
+        640px
+      );
+    min-height: clamp(
+        570px,
+        53vw,
+        640px
+      );
+    margin-right: -4%;
+  }
+
+  .hero__visual img {
+    left: 54%;
+    height: 116%;
+  }
+
+  .hero__social-proof {
+    width: 46%;
+    min-width: 350px;
+    margin-bottom: 28px;
+  }
+
+  .hero__form-card {
+    width: 96%;
+  }
+
+  .hero__form-header {
+    padding: 30px
+      40px
+      18px;
+  }
+
+  .hero__form-body {
+    padding: 14px
+      40px
+      32px;
+  }
+
+}
+
+
+/* ============================================================
+   DESKTOP — >= 1200 px
    ============================================================ */
 
 @media (min-width: 1200px) {
 
-  /* ==========================================================
-     HERO GENERAL
-     ========================================================== */
-
   .hero {
     --hero-desktop-height: clamp(720px, 50.5vw, 832px);
-
     position: relative;
     isolation: isolate;
-
     width: 100%;
     height: var(--hero-desktop-height);
     min-height: var(--hero-desktop-height);
-
     overflow: hidden;
-
     scroll-margin-top: 96px;
-
     color: var(--color-navy);
-
-    background:
-      radial-gradient(
+    background: radial-gradient(
         circle at 51% 43%,
         rgba(255, 255, 255, 0.57) 0%,
         rgba(255, 255, 255, 0.25) 17%,
@@ -1843,367 +1519,218 @@
       );
   }
 
-
-  /* ==========================================================
-     GRAN CÍRCULO DETRÁS DE LA PROFESIONAL
-     ========================================================== */
-
   .hero::before {
     content: "";
-
     position: absolute;
     z-index: -1;
-
     top: 18%;
     left: 39%;
-
     width: clamp(410px, 31vw, 510px);
     height: clamp(410px, 31vw, 510px);
-
     border-radius: 50%;
-
-    background:
-      linear-gradient(
+    background: linear-gradient(
         145deg,
         rgba(103, 226, 216, 0.20),
         rgba(30, 199, 189, 0.30)
       );
-
     pointer-events: none;
   }
 
-
-  /* ==========================================================
-     POLÍGONO TURQUESA DERECHO
-     ========================================================== */
-
   .hero::after {
     content: "";
-
     position: absolute;
     z-index: -1;
-
     right: -7%;
     bottom: 0;
     top: auto;
-
     width: 69%;
     height: 55%;
-
     border: 0;
     border-radius: 0;
-
-    background:
-      linear-gradient(
+    background: linear-gradient(
         135deg,
         rgba(24, 207, 193, 0.73) 0%,
         rgba(1, 166, 159, 0.96) 100%
       );
-
-    clip-path:
-      polygon(
+    clip-path: polygon(
         21% 64%,
         100% 0,
         100% 100%,
         0 100%
       );
-
     pointer-events: none;
   }
 
-
-  /* ==========================================================
-     CONTENEDOR
-     3 columnas:
-     Copy / Profesional / Formulario
-     ========================================================== */
-
   .hero__content {
+    max-width: none;
+    grid-template-areas: none;
+    row-gap: 12px;
     position: relative;
     z-index: 3;
-
-    width:
-      min(
+    width: min(
         calc(100% - 40px),
         1460px
       );
-
     height: var(--hero-desktop-height);
     min-height: var(--hero-desktop-height);
-
     margin-inline: auto;
-
     padding: 0;
-
     display: grid;
-
-    grid-template-columns:
-      37.7%
+    grid-template-columns: 37.7%
       29.5%
       31.5%;
-
     column-gap: 0.65%;
-
     align-items: stretch;
   }
-
-
-  /* ==========================================================
-     COLUMNA IZQUIERDA
-     ========================================================== */
 
   .hero__copy {
     position: relative;
     z-index: 5;
-
     display: block;
-
     align-self: start;
-
     width: 650px;
     max-width: 118%;
-
-    margin:
-      50px
+    margin: 50px
       0
       0;
   }
 
-
-  /* ==========================================================
-     PROGRAMA TÉCNICO
-     ========================================================== */
-
   .hero__eyebrow {
     display: flex;
-
     align-items: center;
-
     gap: 18px;
-
-    margin:
-      0
+    margin: 0
       0
       17px;
-
     color: #173f5b;
-
-    font-size:
-      clamp(
+    font-size: clamp(
         0.78rem,
         0.86vw,
         0.92rem
       );
-
     font-weight: 500;
-
     line-height: 1;
-
     letter-spacing: 0.36em;
-
     text-transform: uppercase;
   }
-
 
   .hero__eyebrow-dash {
     width: 47px;
     height: 7px;
-
     flex: none;
-
     border-radius: 999px;
-
     background: #ffbd14;
   }
-
 
   .hero__title-rule {
     display: none;
   }
 
-
-  /* ==========================================================
-     TÍTULO PRINCIPAL
-     ========================================================== */
-
   .hero__title {
     position: relative;
     z-index: 5;
-
     width: 650px;
     max-width: none;
-
     margin: 0;
     padding: 0;
-
     color: #062d4b;
-
     font-family: var(--font-heading);
-
-    font-size:
-      clamp(
+    font-size: clamp(
         2.55rem,
         3.2vw,
         3.38rem
       );
-
     font-weight: 800;
-
     line-height: 1.105;
-
     letter-spacing: -0.055em;
   }
 
-
   .hero__title-line {
     display: block;
-
     white-space: nowrap;
   }
-
 
   .hero__title-accent {
     color: #009f9a;
   }
 
-
-  /* ==========================================================
-     SUBTÍTULO
-     ========================================================== */
-
   .hero__lead {
     display: block;
-
     width: 480px;
     max-width: none;
-
-    margin:
-      14px
+    margin: 14px
       0
       24px;
-
     color: #174d6c;
-
-    font-size:
-      clamp(
+    font-size: clamp(
         1rem,
         1.25vw,
         1.26rem
       );
-
     line-height: 1.42;
   }
-
-
-  /* ==========================================================
-     BENEFICIOS
-     ========================================================== */
 
   .hero__highlights {
     position: relative;
     z-index: 5;
-
     width: 330px;
-
-    margin:
-      0
+    margin: 0
       0
       20px;
-
     padding: 0;
-
     display: grid;
-
     gap: 10px;
-
     list-style: none;
   }
 
-
-  /*
-   * En desktop desaparecen las cards blancas.
-   * En la referencia solamente existe:
-   *
-   * [ icono turquesa ] texto
-   */
-
   .hero__highlights li {
     min-height: 74px;
-
     padding: 0;
-
     display: flex;
-
     align-items: center;
-
     gap: 24px;
-
     border: 0;
     border-radius: 0;
-
     background: transparent;
-
     box-shadow: none;
-
     color: #0c3e5e;
-
-    font-size:
-      clamp(
+    font-size: clamp(
         0.92rem,
         1.18vw,
         1.12rem
       );
-
     font-weight: 700;
-
     line-height: 1.3;
-
     overflow-wrap: normal;
   }
 
-
-  /* Iconos */
-
   .hero__highlight-icon {
-    width:
+    width: clamp(
+        60px,
+        4.45vw,
+        74px
+      );
+    height: clamp(
+        60px,
+        4.45vw,
+        74px
+      );
+    flex: 0 0
       clamp(
         60px,
         4.45vw,
         74px
       );
-
-    height:
-      clamp(
-        60px,
-        4.45vw,
-        74px
-      );
-
-    flex:
-      0 0
-      clamp(
-        60px,
-        4.45vw,
-        74px
-      );
-
     display: grid;
-
     place-items: center;
-
     border-radius: 16px;
-
     color: #ffffff;
-
-    background:
-      linear-gradient(
+    background: linear-gradient(
         145deg,
         #05aca3,
         #02948e
       );
-
-    box-shadow:
-      0 10px 20px
+    box-shadow: 0 10px 20px
       rgba(
         0,
         132,
@@ -2212,55 +1739,34 @@
       );
   }
 
-
   .hero__highlight-icon svg {
     width: 34px;
     height: 34px;
   }
 
-
-  /* ==========================================================
-     PRUEBA SOCIAL
-     ========================================================== */
-
   .hero__social-proof {
     position: relative;
     z-index: 6;
-
     width: 420px;
-
     min-height: 74px;
-
-    margin:
-      12px
+    margin: 12px
       0
       0
       -10px;
-
-    padding:
-      12px
+    padding: 12px
       18px;
-
     display: flex;
-
     align-items: center;
-
     gap: 18px;
-
     border: 0;
-
     border-radius: 14px;
-
-    background:
-      rgba(
+    background: rgba(
         255,
         255,
         255,
         0.97
       );
-
-    box-shadow:
-      0 10px 28px
+    box-shadow: 0 10px 28px
       rgba(
         20,
         120,
@@ -2269,16 +1775,11 @@
       );
   }
 
-
   .hero__avatars {
     display: flex;
-
     flex: none;
-
     padding-right: 14px;
-
-    border-right:
-      1px solid
+    border-right: 1px solid
       rgba(
         8,
         45,
@@ -2287,264 +1788,153 @@
       );
   }
 
-
   .hero__avatars img {
     width: 40px;
     height: 40px;
-
     margin-left: -9px;
-
-    border:
-      2px solid
+    border: 2px solid
       #ffffff;
-
     border-radius: 50%;
-
     object-fit: cover;
   }
-
 
   .hero__avatars img:first-child {
     margin-left: 0;
   }
 
-
   .hero__proof-copy {
     min-width: 0;
   }
 
-
   .hero__rating-count {
     max-width: 190px;
-
     color: #3c657c;
-
     font-size: 0.68rem;
     font-weight: 500;
-
     line-height: 1.32;
   }
 
-
   .hero__rating-count strong {
     display: block;
-
     margin-bottom: 3px;
-
     color: #073651;
-
     font-size: 0.88rem;
     font-weight: 800;
   }
 
-
-  /* ==========================================================
-     PROFESIONAL
-     ========================================================== */
-
   .hero__visual {
+    grid-area: auto;
     position: relative;
     z-index: 4;
-
     grid-column: 2;
-
     align-self: stretch;
     justify-self: stretch;
-
     width: 100%;
     max-width: none;
-
     height: var(--hero-desktop-height);
     min-height: 0;
-
     margin: 0;
-
     overflow: visible;
-
     border-radius: 0;
   }
-
-
-  /*
-   * Esta es una de las diferencias principales respecto al
-   * diseño anterior.
-   *
-   * La profesional termina en el fondo del HERO, no antes
-   * de la franja inferior.
-   */
 
   .hero__visual img {
     position: absolute;
     z-index: 3;
-
     right: -34px;
     bottom: -8px;
-
     top: auto;
     left: auto;
-
     width: auto;
     max-width: none;
-
-    height:
-      clamp(
+    height: clamp(
         670px,
         45vw,
         744px
       );
-
     max-height: none;
-
     object-fit: contain;
-
-    object-position:
-      center bottom;
-
+    object-position: center bottom;
     transform: none;
-
     -webkit-mask-image: none;
     mask-image: none;
   }
 
-
-  /* ==========================================================
-     DECORACIÓN MOLECULAR
-     ========================================================== */
-
   .hero__visual-deco {
     display: block;
-
     position: absolute;
-
     pointer-events: none;
   }
 
-
   .hero__visual-deco--molecule {
     z-index: 1;
-
     top: 30px;
     right: 28px;
-
     width: 155px;
     height: 155px;
-
     opacity: 0.48;
   }
 
-
-  /* ==========================================================
-     CÁPSULA
-     ========================================================== */
-
   .hero__visual-deco--pill {
     z-index: 1;
-
     top: 242px;
     bottom: auto;
-
     left: -85px;
-
     width: 108px;
-
     opacity: 0.42;
-
-    transform:
-      rotate(-58deg);
+    transform: rotate(-58deg);
   }
-
-
-  /* ==========================================================
-     TEXTO MANUSCRITO
-     ========================================================== */
 
   .hero__visual-caption {
     position: absolute;
     z-index: 5;
-
     display: block;
-
     left: -116px;
     bottom: 160px;
-
     width: 180px;
     max-width: none;
-
     margin: 0;
-
     color: #0a3d59;
-
-    font-family:
-      Georgia,
+    font-family: Georgia,
       "Times New Roman",
       serif;
-
-    font-size:
-      clamp(
+    font-size: clamp(
         1.10rem,
         1.45vw,
         1.45rem
       );
-
     font-style: italic;
     font-weight: 600;
-
     line-height: 1.18;
-
     text-align: center;
-
     text-decoration: underline;
-
-    text-decoration-color:
-      #ffb800;
-
-    text-decoration-thickness:
-      4px;
-
-    text-underline-offset:
-      10px;
-
-    transform:
-      rotate(-7deg);
+    text-decoration-color: #ffb800;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 10px;
+    transform: rotate(-7deg);
   }
 
-
-  /* ==========================================================
-     FORMULARIO
-     ========================================================== */
-
   .hero__form-card {
+    grid-area: auto;
     position: relative;
     z-index: 7;
-
     grid-column: 3;
-
     align-self: start;
     justify-self: stretch;
-
     width: 100%;
     max-width: none;
-
-    margin:
-      90px
+    margin: 90px
       0
       0;
-
     overflow: visible;
-
     border-radius: 22px;
-
     color: #ffffff;
-
-    background:
-      linear-gradient(
+    background: linear-gradient(
         180deg,
         #06aaa2 0%,
         #029c96 100%
       );
-
-    box-shadow:
-      0 18px 38px
+    box-shadow: 0 18px 38px
       rgba(
         0,
         102,
@@ -2553,234 +1943,136 @@
       );
   }
 
-
-  /* ==========================================================
-     BADGE AMARILLO DEL FORMULARIO
-     ========================================================== */
-
   .hero__form-badge {
     position: absolute;
     z-index: 8;
-
     top: -36px;
     left: 50%;
-
-    width:
-      calc(
+    width: calc(
         100% - 62px
       );
-
     min-height: 62px;
-
-    padding:
-      10px
+    padding: 10px
       22px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 13px;
-
     border-radius: 18px;
-
     color: #0b3a57;
-
-    background:
-      linear-gradient(
+    background: linear-gradient(
         180deg,
         #ffc31a,
         #ffb716
       );
-
-    box-shadow:
-      0 10px 24px
+    box-shadow: 0 10px 24px
       rgba(
         154,
         105,
         0,
         0.16
       );
-
-    font-size:
-      clamp(
+    font-size: clamp(
         0.72rem,
         0.95vw,
         0.92rem
       );
-
     font-weight: 800;
-
     line-height: 1.2;
-
     white-space: nowrap;
-
-    transform:
-      translateX(-50%);
+    transform: translateX(-50%);
   }
-
 
   .hero__form-badge-icon {
     width: 32px;
     height: 32px;
-
     flex: 0 0 32px;
-
     display: grid;
-
     place-items: center;
-
     color: #0b3a57;
-
     background: transparent;
   }
-
 
   .hero__form-badge-icon svg {
     width: 27px;
     height: 27px;
   }
 
-
-  /* ==========================================================
-     CABECERA FORMULARIO
-     ========================================================== */
-
   .hero__form-header {
-    padding:
-      50px
+    padding: 50px
       32px
       10px;
-
     border: 0;
-
     text-align: left;
   }
 
-
   .hero__form-title {
     max-width: 390px;
-
     margin: 0;
-
     color: #ffffff;
-
-    font-family:
-      var(--font-heading);
-
-    font-size:
-      clamp(
+    font-family: var(--font-heading);
+    font-size: clamp(
         1.95rem,
         2.35vw,
         2.38rem
       );
-
     font-weight: 800;
-
     line-height: 1.06;
-
     letter-spacing: -0.045em;
   }
-
-
-  /* En referencia el título ocupa 2 líneas */
 
   .hero__form-title-break {
     display: block;
   }
 
-
   .hero__form-subtitle {
     display: none;
   }
 
-
-  /* ==========================================================
-     CUERPO FORMULARIO
-     ========================================================== */
-
   .hero__form-body {
-    padding:
-      8px
+    padding: 8px
       32px
       24px;
   }
 
-
   .form-fields {
     margin-bottom: 13px;
-
     display: grid;
-
     gap: 9px;
   }
 
-
   .form-field {
     margin: 0;
-
     min-width: 0;
   }
 
-
-  /* ==========================================================
-     LABELS
-     ========================================================== */
-
   .form-label {
     display: block;
-
     margin-bottom: 5px;
-
     color: #ffffff;
-
     font-size: 0.68rem;
-
     font-weight: 800;
-
     line-height: 1.1;
-
     letter-spacing: 0.01em;
-
     text-transform: uppercase;
   }
-
-
-  /* ==========================================================
-     INPUTS
-     ========================================================== */
 
   .form-input,
   .form-select {
     width: 100%;
-
     min-height: 49px;
     height: 49px;
-
-    padding:
-      11px
+    padding: 11px
       16px;
-
     border: 0;
-
     border-radius: 10px;
-
     outline: none;
-
     color: #294b61;
-
     background-color: #ffffff;
-
-    font-family:
-      var(--font-body);
-
+    font-family: var(--font-body);
     font-size: 0.82rem;
-
     line-height: 1;
-
-    box-shadow:
-      0 1px 0
+    box-shadow: 0 1px 0
       rgba(
         6,
         56,
@@ -2789,30 +2081,21 @@
       );
   }
 
-
   .form-input::placeholder {
     color: #8ea0ac;
   }
 
-
   .form-select,
   .form-select.has-value {
     color: #738995;
-
     background-color: #ffffff;
-
-    background-position:
-      right 16px center;
+    background-position: right 16px center;
   }
-
 
   .form-input:focus,
   .form-select:focus {
-    border-color:
-      #ffc20b;
-
-    box-shadow:
-      0 0 0 3px
+    border-color: #ffc20b;
+    box-shadow: 0 0 0 3px
       rgba(
         255,
         194,
@@ -2821,184 +2104,108 @@
       );
   }
 
-
-  /* ==========================================================
-     BOTÓN FORMULARIO
-     ========================================================== */
-
   .hero__submit {
     position: relative;
-
     width: 100%;
-
     min-height: 58px;
-
-    padding:
-      10px
+    padding: 10px
       55px
       10px
       22px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 11px;
-
     color: #17354a;
-
-    background:
-      linear-gradient(
+    background: linear-gradient(
         180deg,
         #ffc51b,
         #ffb80f
       );
-
     box-shadow: none;
-
     font-size: 0.88rem;
-
     font-weight: 800;
-
     line-height: 1.1;
-
     text-align: center;
   }
 
-
   .hero__submit-arrow {
     position: absolute;
-
     top: 50%;
     right: 22px;
-
     font-size: 1.35rem;
-
     line-height: 1;
-
-    transform:
-      translateY(-50%);
+    transform: translateY(-50%);
   }
 
-
-  /* ==========================================================
-     PRIVACIDAD
-     ========================================================== */
-
   .form-privacy {
-    margin:
-      10px
+    margin: 10px
       12px
       0
       18px;
-
     display: flex;
-
     align-items: flex-start;
-
     gap: 10px;
-
-    color:
-      rgba(
+    color: rgba(
         255,
         255,
         255,
         0.92
       );
-
     font-size: 0.59rem;
-
     line-height: 1.45;
-
     text-align: left;
   }
-
 
   .form-privacy .icon {
     width: 16px;
     height: 16px;
-
-    flex:
-      0 0
+    flex: 0 0
       16px;
-
     margin-top: 1px;
   }
-
-
-  /* ==========================================================
-     FRANJA INFERIOR
-
-     La referencia NO tiene 3 estadísticas repartidas por todo
-     el ancho. Las tres están concentradas en la izquierda.
-     ========================================================== */
 
   .hero__stats {
     position: absolute;
     z-index: 2;
-
     left: 0;
     right: 0;
     bottom: 0;
-
     width: 100%;
-
-    height:
-      clamp(
+    height: clamp(
         150px,
         10.6vw,
         175px
       );
-
     margin: 0;
-
-    padding:
-      70px
+    padding: 70px
       51%
       22px
       34px;
-
     display: grid;
-
-    grid-template-columns:
-      repeat(
+    grid-template-columns: repeat(
         3,
         minmax(0, 1fr)
       );
-
     gap: 0;
-
     align-items: center;
-
     color: #ffffff;
-
     background: transparent;
-
     clip-path: none;
   }
 
-
-  /* Fondo diagonal oscuro */
-
   .hero__stats::before {
     content: "";
-
     position: absolute;
     z-index: -1;
-
     inset: 0;
-
-    background:
-      linear-gradient(
+    background: linear-gradient(
         100deg,
         #00757a 0%,
         #006878 68%,
         #006173 100%
       );
-
-    clip-path:
-      polygon(
+    clip-path: polygon(
         0 0,
         100% 83%,
         100% 100%,
@@ -3006,26 +2213,14 @@
       );
   }
 
-
-  /* ==========================================================
-     ITEMS DE ESTADÍSTICAS
-     ========================================================== */
-
   .hero__stats > div {
     min-width: 0;
-
-    padding:
-      0
+    padding: 0
       20px;
-
     display: flex;
-
     align-items: center;
-
     gap: 13px;
-
-    border-right:
-      1px solid
+    border-right: 1px solid
       rgba(
         255,
         255,
@@ -3034,1647 +2229,63 @@
       );
   }
 
-
   .hero__stats > div:first-child {
     padding-left: 0;
   }
-
 
   .hero__stats > div:last-child {
     border-right: 0;
   }
 
-
   .hero__stats-icon {
     width: 32px;
     height: 32px;
-
-    flex:
-      0 0
+    flex: 0 0
       32px;
-
     color: #ffffff;
   }
 
-
   .hero__stats strong {
     display: block;
-
     color: #ffffff;
-
-    font-family:
-      var(--font-heading);
-
-    font-size:
-      clamp(
+    font-family: var(--font-heading);
+    font-size: clamp(
         0.86rem,
         1.08vw,
         1.05rem
       );
-
     font-weight: 800;
-
     line-height: 1.05;
   }
 
-
   .hero__stats span {
     display: block;
-
     margin-top: 4px;
-
     color: #ffffff;
-
-    font-size:
-      clamp(
+    font-size: clamp(
         0.56rem,
         0.72vw,
         0.70rem
       );
-
     line-height: 1.15;
   }
 
 }
 
-/* ============================================================
-   HERO — TABLET FINAL
-   640px → 1199px
-
-   Referencia:
-   - Título grande arriba
-   - Beneficios a la izquierda
-   - Profesional dominante a la derecha
-   - Social proof integrado abajo a la izquierda
-   - Formulario ancho inmediatamente debajo
-   - Sin elementos flotando
-   - Sin espacios muertos
-   ============================================================ */
-
-@media (min-width: 640px) and (max-width: 1199px) {
-
-  /* ==========================================================
-     HERO
-     ========================================================== */
-
-  .hero {
-    position: relative;
-    isolation: isolate;
-
-    width: 100%;
-    min-height: auto;
-
-    overflow: hidden;
-
-    scroll-margin-top: 88px;
-
-    background:
-      radial-gradient(
-        circle at 74% 38%,
-        rgba(255,255,255,.42) 0%,
-        rgba(255,255,255,.16) 30%,
-        transparent 52%
-      ),
-      linear-gradient(
-        115deg,
-        #defaf7 0%,
-        #c8f4ef 52%,
-        #d7f9f6 100%
-      );
-  }
-
-
-  /* ==========================================================
-     FONDO DECORATIVO
-     ========================================================== */
-
-  .hero::before {
-    content: "";
-
-    position: absolute;
-    z-index: -1;
-
-    left: 49%;
-    top: 210px;
-
-    width: clamp(410px, 54vw, 610px);
-    height: clamp(410px, 54vw, 610px);
-
-    border-radius: 50%;
-
-    background:
-      linear-gradient(
-        145deg,
-        rgba(255,255,255,.28),
-        rgba(83,224,212,.32)
-      );
-
-    pointer-events: none;
-  }
-
-
-  .hero::after {
-    content: "";
-
-    position: absolute;
-    z-index: -1;
-
-    top: 80px;
-    right: -110px;
-
-    width: 245px;
-    height: 245px;
-
-    border:
-      1px solid
-      rgba(255,255,255,.28);
-
-    border-radius: 50%;
-
-    background: transparent;
-
-    pointer-events: none;
-  }
-
-
-  /* ==========================================================
-     CONTENEDOR PRINCIPAL
-     ========================================================== */
-
-  .hero__content {
-    position: relative;
-    z-index: 3;
-
-    width:
-      min(
-        calc(100% - 56px),
-        1060px
-      );
-
-    max-width: none;
-
-    margin-inline: auto;
-
-    padding:
-      38px
-      0
-      0;
-
-    display: grid;
-
-    /*
-     * Una sola composición:
-     *
-     * título
-     * subtítulo
-     * stage
-     * formulario
-     */
-
-    grid-template-columns: 1fr;
-
-    grid-template-areas:
-      "eyebrow"
-      "title"
-      "lead"
-      "stage"
-      "form";
-
-    row-gap: 0;
-
-    align-items: start;
-  }
-
-
-  .hero__copy {
-    display: contents;
-  }
-
-
-  /* ==========================================================
-     EYEBROW
-     ========================================================== */
-
-  .hero__eyebrow {
-    grid-area: eyebrow;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    margin:
-      0
-      0
-      13px;
-
-    color: #104e69;
-
-    font-size:
-      clamp(
-        .72rem,
-        1.25vw,
-        .86rem
-      );
-
-    font-weight: 800;
-
-    line-height: 1;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-  }
-
-
-  .hero__eyebrow-dash {
-    display: block;
-
-    width: 42px;
-    height: 5px;
-
-    flex: none;
-
-    border-radius: 999px;
-
-    background: #ffc20b;
-  }
-
-
-  .hero__title-rule {
-    display: none;
-  }
-
-
-  /* ==========================================================
-     TÍTULO
-     ========================================================== */
-
-  .hero__title {
-    grid-area: title;
-
-    position: relative;
-    z-index: 6;
-
-    width: 100%;
-    max-width: 940px;
-
-    margin: 0;
-
-    padding: 0;
-
-    color: #073b5a;
-
-    font-family: var(--font-heading);
-
-    font-size:
-      clamp(
-        2.45rem,
-        5vw,
-        3.55rem
-      );
-
-    font-weight: 800;
-
-    line-height: 1.035;
-
-    letter-spacing: -.05em;
-  }
-
-
-  .hero__title-line {
-    display: block;
-
-    white-space: normal;
-  }
-
-
-  .hero__title-accent {
-    color: #08a7a2;
-  }
-
-
-  /* ==========================================================
-     SUBTÍTULO
-     ========================================================== */
-
-  .hero__lead {
-    grid-area: lead;
-
-    display: block;
-
-    width: min(100%, 720px);
-
-    max-width: none;
-
-    margin:
-      13px
-      0
-      0;
-
-    color: #174f6b;
-
-    font-size:
-      clamp(
-        .95rem,
-        1.7vw,
-        1.18rem
-      );
-
-    line-height: 1.38;
-  }
-
-
-  /* ==========================================================
-     STAGE
-     ========================================================== */
-
-  .hero__highlights,
-  .hero__visual,
-  .hero__social-proof {
-    grid-area: stage;
-  }
-
-
-  /* ==========================================================
-     BENEFICIOS
-     ========================================================== */
-
-  .hero__highlights {
-    position: relative;
-    z-index: 10;
-
-    justify-self: start;
-    align-self: start;
-
-    width: 42%;
-
-    min-width: 275px;
-
-    margin:
-      32px
-      0
-      0;
-
-    padding: 0;
-
-    display: grid;
-
-    gap: 14px;
-
-    list-style: none;
-  }
-
-
-  .hero__highlights li {
-    position: relative;
-
-    width: 100%;
-
-    min-height:
-      clamp(
-        75px,
-        7.5vw,
-        92px
-      );
-
-    padding:
-      11px
-      48px
-      11px
-      14px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 16px;
-
-    border:
-      1px solid
-      rgba(0,135,130,.05);
-
-    border-radius: 18px;
-
-    color: #0b4362;
-
-    background:
-      rgba(255,255,255,.97);
-
-    box-shadow:
-      0 9px 24px
-      rgba(17,116,111,.08);
-
-    font-size:
-      clamp(
-        .83rem,
-        1.5vw,
-        1rem
-      );
-
-    font-weight: 700;
-
-    line-height: 1.23;
-
-    overflow: hidden;
-  }
-
-
-  /* flecha lateral similar a referencia */
-
-  .hero__highlights li::after {
-    content: "›";
-
-    position: absolute;
-
-    top: 50%;
-    right: 18px;
-
-    color: #08a7a2;
-
-    font-size: 2rem;
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    transform:
-      translateY(-53%);
-  }
-
-
-  /* ==========================================================
-     ICONOS BENEFICIOS
-     ========================================================== */
-
-  .hero__highlight-icon {
-    width:
-      clamp(
-        52px,
-        5.8vw,
-        66px
-      );
-
-    height:
-      clamp(
-        52px,
-        5.8vw,
-        66px
-      );
-
-    flex:
-      0 0
-      clamp(
-        52px,
-        5.8vw,
-        66px
-      );
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 15px;
-
-    color: #ffffff;
-
-    background:
-      linear-gradient(
-        145deg,
-        #07aaa3,
-        #008f8b
-      );
-
-    box-shadow:
-      0 8px 18px
-      rgba(0,132,126,.13);
-  }
-
-
-  .hero__highlight-icon svg {
-    width:
-      clamp(
-        26px,
-        3vw,
-        32px
-      );
-
-    height:
-      clamp(
-        26px,
-        3vw,
-        32px
-      );
-  }
-
-
-  /* ==========================================================
-     PROFESIONAL
-     ========================================================== */
-
-  .hero__visual {
-    position: relative;
-    z-index: 5;
-
-    justify-self: end;
-    align-self: start;
-
-    width: 64%;
-
-    max-width: none;
-
-    /*
-     * Altura importante:
-     * es lo que hace que la profesional domine la composición
-     * como en la imagen de referencia.
-     */
-
-    height:
-      clamp(
-        500px,
-        56vw,
-        650px
-      );
-
-    min-height:
-      clamp(
-        500px,
-        56vw,
-        650px
-      );
-
-    margin:
-      -24px
-      -3%
-      0
-      0;
-
-    overflow: visible;
-
-    border-radius: 0;
-  }
-
-
-  /* gran círculo detrás */
-
-  .hero__visual::before {
-    content: "";
-
-    position: absolute;
-    z-index: -1;
-
-    left: 52%;
-    bottom: 0;
-
-    width:
-      clamp(
-        410px,
-        47vw,
-        560px
-      );
-
-    height:
-      clamp(
-        410px,
-        47vw,
-        560px
-      );
-
-    border-radius: 50%;
-
-    background:
-      linear-gradient(
-        145deg,
-        rgba(224,255,251,.30),
-        rgba(83,222,211,.34)
-      );
-
-    transform:
-      translateX(-50%);
-  }
-
-
-  /* ==========================================================
-     IMAGEN
-     ========================================================== */
-
-  .hero__visual img {
-    position: absolute;
-    z-index: 5;
-
-    top: auto;
-    right: auto;
-
-    left: 53%;
-    bottom: 0;
-
-    width: auto;
-
-    max-width: none;
-
-    height: 113%;
-
-    object-fit: contain;
-
-    object-position:
-      center bottom;
-
-    transform:
-      translateX(-50%);
-
-    /*
-     * Nada de fade ni mask en tablet.
-     * La referencia muestra figura definida.
-     */
-
-    -webkit-mask-image: none;
-
-    mask-image: none;
-  }
-
-
-  /* ==========================================================
-     DECORACIONES
-
-     Dejamos solamente la molécula.
-     ========================================================== */
-
-  .hero__visual-deco--pill {
-    display: none;
-  }
-
-
-  .hero__visual-caption {
-    display: none;
-  }
-
-
-  .hero__visual-deco--molecule {
-    display: block;
-
-    position: absolute;
-    z-index: 1;
-
-    top: 8%;
-    right: 4%;
-
-    width:
-      clamp(
-        75px,
-        9vw,
-        105px
-      );
-
-    height:
-      clamp(
-        75px,
-        9vw,
-        105px
-      );
-
-    opacity: .20;
-
-    pointer-events: none;
-  }
-
-
-  /* ==========================================================
-     PRUEBA SOCIAL
-     ========================================================== */
-
-  .hero__social-proof {
-    position: relative;
-    z-index: 12;
-
-    justify-self: start;
-    align-self: end;
-
-    width: 46%;
-
-    min-width: 310px;
-
-    min-height:
-      clamp(
-        67px,
-        7vw,
-        78px
-      );
-
-    margin:
-      0
-      0
-      22px;
-
-    padding:
-      11px
-      17px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    border: 0;
-
-    border-radius: 18px;
-
-    background:
-      rgba(255,255,255,.98);
-
-    box-shadow:
-      0 9px 24px
-      rgba(17,116,111,.075);
-  }
-
-
-  .hero__avatars {
-    display: flex;
-
-    flex-shrink: 0;
-
-    padding-right: 13px;
-
-    border-right:
-      1px solid
-      rgba(8,45,69,.18);
-  }
-
-
-  .hero__avatars img {
-    width:
-      clamp(
-        33px,
-        3.7vw,
-        42px
-      );
-
-    height:
-      clamp(
-        33px,
-        3.7vw,
-        42px
-      );
-
-    margin-left: -8px;
-
-    border:
-      2px solid
-      #ffffff;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-  }
-
-
-  .hero__avatars img:first-child {
-    margin-left: 0;
-  }
-
-
-  .hero__proof-copy {
-    min-width: 0;
-  }
-
-
-  .hero__rating-count {
-    color: #345d72;
-
-    font-size:
-      clamp(
-        .64rem,
-        1.1vw,
-        .76rem
-      );
-
-    line-height: 1.28;
-  }
-
-
-  .hero__rating-count strong {
-    display: block;
-
-    margin-bottom: 2px;
-
-    color: #009e99;
-
-    font-family:
-      var(--font-heading);
-
-    font-size:
-      clamp(
-        .89rem,
-        1.55vw,
-        1.08rem
-      );
-
-    font-weight: 800;
-  }
-
-
-  /* ==========================================================
-     FORMULARIO
-     ========================================================== */
-
-  .hero__form-card {
-    grid-area: form;
-
-    position: relative;
-    z-index: 15;
-
-    justify-self: center;
-
-    width: 100%;
-
-    max-width: none;
-
-    /*
-     * La clave:
-     * comienza prácticamente donde termina la persona.
-     */
-
-    margin:
-      -1px
-      auto
-      28px;
-
-    overflow: hidden;
-
-    border-radius: 24px;
-
-    color: #ffffff;
-
-    background:
-      linear-gradient(
-        135deg,
-        #008e91 0%,
-        #00aaa3 100%
-      );
-
-    box-shadow:
-      0 15px 35px
-      rgba(0,101,98,.14);
-  }
-
-
-  /* No badge flotante */
-
-  .hero__form-badge {
-    display: none;
-  }
-
-
-  /* ==========================================================
-     CABECERA DEL FORM
-     ========================================================== */
-
-  .hero__form-header {
-    position: relative;
-
-    padding:
-      28px
-      38px
-      16px;
-
-    border-bottom: 0;
-  }
-
-
-  /*
-   * círculo amarillo decorativo,
-   * similar al ícono grande de referencia
-   */
-
-  .hero__form-header::before {
-    content: "✎";
-
-    float: left;
-
-    width: 68px;
-    height: 68px;
-
-    margin:
-      -4px
-      22px
-      4px
-      0;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius: 50%;
-
-    color: #08647a;
-
-    background:
-      linear-gradient(
-        145deg,
-        #ffd534,
-        #ffbf0b
-      );
-
-    font-size: 1.8rem;
-
-    font-weight: 700;
-  }
-
-
-  .hero__form-title {
-    max-width: none;
-
-    margin:
-      0
-      0
-      6px;
-
-    color: #ffffff;
-
-    font-size:
-      clamp(
-        1.75rem,
-        3vw,
-        2.25rem
-      );
-
-    line-height: 1.08;
-
-    letter-spacing: -.035em;
-  }
-
-
-  .hero__form-title-break {
-    display: none;
-  }
-
-
-  .hero__form-subtitle {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color:
-      rgba(255,255,255,.95);
-
-    font-size:
-      clamp(
-        .72rem,
-        1.2vw,
-        .84rem
-      );
-
-    line-height: 1.27;
-  }
-
-
-  .hero__discount-icon {
-    width: 25px;
-    height: 25px;
-
-    flex:
-      0 0
-      25px;
-
-    color: #0a6577;
-
-    background: #ffc91b;
-  }
-
-
-  /* ==========================================================
-     BODY FORMULARIO
-     ========================================================== */
-
-  .hero__form-body {
-    clear: both;
-
-    padding:
-      13px
-      38px
-      30px;
-  }
-
-
-  /*
-   * Igual que la referencia:
-   * 2 columnas + último campo a todo el ancho.
-   */
-
-  .hero__form-body .form-fields {
-    display: grid;
-
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0,1fr)
-      );
-
-    column-gap: 18px;
-    row-gap: 12px;
-
-    margin-bottom: 16px;
-  }
-
-
-  .hero__form-body .form-field:last-child {
-    grid-column:
-      1 / -1;
-  }
-
-
-  .form-label {
-    display: block;
-
-    margin-bottom: 5px;
-
-    color: #ffffff;
-
-    font-size:
-      clamp(
-        .62rem,
-        1vw,
-        .71rem
-      );
-
-    font-weight: 800;
-
-    line-height: 1.1;
-  }
-
-
-  .form-input,
-  .form-select {
-    width: 100%;
-
-    min-height:
-      clamp(
-        48px,
-        5vw,
-        56px
-      );
-
-    height:
-      clamp(
-        48px,
-        5vw,
-        56px
-      );
-
-    padding:
-      11px
-      17px;
-
-    border: 0;
-
-    border-radius: 11px;
-
-    color: #31576c;
-
-    background: #ffffff;
-
-    font-size:
-      clamp(
-        .76rem,
-        1.25vw,
-        .88rem
-      );
-  }
-
-
-  /* ==========================================================
-     CTA
-     ========================================================== */
-
-  .hero__submit {
-    position: relative;
-
-    width: 100%;
-
-    min-height:
-      clamp(
-        53px,
-        5.3vw,
-        61px
-      );
-
-    padding:
-      10px
-      58px
-      10px
-      22px;
-
-    border-radius: 12px;
-
-    color: #17354a;
-
-    background:
-      linear-gradient(
-        180deg,
-        #ffc91b,
-        #ffb90f
-      );
-
-    box-shadow: none;
-
-    font-size:
-      clamp(
-        .82rem,
-        1.35vw,
-        .96rem
-      );
-
-    font-weight: 800;
-  }
-
-
-  .hero__submit-arrow {
-    position: absolute;
-
-    top: 50%;
-    right: 25px;
-
-    font-size: 1.3rem;
-
-    transform:
-      translateY(-50%);
-  }
-
-
-  /* ==========================================================
-     PRIVACIDAD
-     ========================================================== */
-
-  .form-privacy {
-    width: 65%;
-
-    margin:
-      11px
-      0
-      0;
-
-    gap: 9px;
-
-    color:
-      rgba(255,255,255,.93);
-
-    font-size:
-      clamp(
-        .56rem,
-        .95vw,
-        .67rem
-      );
-
-    line-height: 1.3;
-  }
-
-
-  /* ==========================================================
-     ESTADÍSTICAS
-     ========================================================== */
-
-  .hero__stats {
-    position: relative;
-    z-index: 20;
-
-    display: grid;
-
-    grid-template-columns:
-      repeat(
-        3,
-        minmax(0,1fr)
-      );
-
-    gap: 0;
-
-    margin: 0;
-
-    padding:
-      25px
-      max(
-        40px,
-        calc((100% - 1050px) / 2)
-      );
-
-    color: #ffffff;
-
-    background:
-      linear-gradient(
-        100deg,
-        #007079,
-        #006173
-      );
-
-    clip-path: none;
-  }
-
-
-  .hero__stats > div {
-    min-width: 0;
-
-    padding:
-      0
-      clamp(
-        18px,
-        3vw,
-        36px
-      );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap:
-      clamp(
-        10px,
-        1.6vw,
-        15px
-      );
-
-    border-right:
-      1px solid
-      rgba(255,255,255,.32);
-  }
-
-
-  .hero__stats > div:first-child {
-    padding-left: 0;
-  }
-
-
-  .hero__stats > div:last-child {
-    padding-right: 0;
-
-    border-right: 0;
-  }
-
-
-  .hero__stats-icon {
-    width:
-      clamp(
-        28px,
-        3.3vw,
-        38px
-      );
-
-    height:
-      clamp(
-        28px,
-        3.3vw,
-        38px
-      );
-
-    flex:
-      0 0
-      clamp(
-        28px,
-        3.3vw,
-        38px
-      );
-
-    color: #ffffff;
-  }
-
-
-  .hero__stats strong {
-    display: block;
-
-    color: #ffffff;
-
-    font-size:
-      clamp(
-        .82rem,
-        1.5vw,
-        1.08rem
-      );
-
-    line-height: 1.07;
-  }
-
-
-  .hero__stats span {
-    display: block;
-
-    margin-top: 3px;
-
-    color: #d5f5f0;
-
-    font-size:
-      clamp(
-        .52rem,
-        .9vw,
-        .65rem
-      );
-
-    line-height: 1.17;
-  }
-
-}
-
 
 /* ============================================================
-   TABLET PEQUEÑA
-   640px — 767px
+   ACCESIBILIDAD
    ============================================================ */
 
-@media (min-width: 640px) and (max-width: 767px) {
-
-  .hero__content {
-    width:
-      calc(100% - 32px);
-
-    padding-top: 28px;
-  }
-
-
-  .hero__title {
-    font-size:
-      clamp(
-        2rem,
-        5.3vw,
-        2.55rem
-      );
-  }
-
-
-  .hero__lead {
-    font-size: .86rem;
-  }
-
-
-  .hero__highlights {
-    width: 43%;
-
-    min-width: 225px;
-
-    margin-top: 26px;
-
-    gap: 10px;
-  }
-
-
-  .hero__highlights li {
-    min-height: 65px;
-
-    padding:
-      8px
-      38px
-      8px
-      9px;
-
-    font-size: .71rem;
-
-    gap: 9px;
-  }
-
-
-  .hero__highlights li::after {
-    right: 12px;
-
-    font-size: 1.6rem;
-  }
-
-
-  .hero__highlight-icon {
-    width: 41px;
-    height: 41px;
-
-    flex-basis: 41px;
-  }
-
-
-  .hero__highlight-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
-
-  .hero__visual {
-    width: 65%;
-
-    height: 445px;
-
-    min-height: 445px;
-
-    margin-right: -5%;
-  }
-
-
-  .hero__visual img {
-    left: 55%;
-
-    height: 109%;
-  }
-
-
-  .hero__visual::before {
-    width: 355px;
-    height: 355px;
-  }
-
-
-  .hero__social-proof {
-    width: 45%;
-
-    min-width: 240px;
-
-    margin-bottom: 20px;
-
-    padding:
-      8px
-      10px;
-  }
-
-
-  .hero__avatars img {
-    width: 29px;
-    height: 29px;
-  }
-
-
-  .hero__form-header {
-    padding:
-      23px
-      25px
-      13px;
-  }
-
-
-  .hero__form-header::before {
-    width: 55px;
-    height: 55px;
-
-    margin-right: 15px;
-
-    font-size: 1.4rem;
-  }
-
-
-  .hero__form-title {
-    font-size: 1.5rem;
-  }
-
-
-  .hero__form-body {
-    padding:
-      12px
-      25px
-      23px;
-  }
-
-}
-
-
-/* ============================================================
-   TABLET MEDIA
-   768px — 899px
-   ============================================================ */
-
-@media (min-width: 768px) and (max-width: 899px) {
-
-  .hero__visual {
-    width: 65%;
-
-    height:
-      clamp(
-        510px,
-        63vw,
-        560px
-      );
-
-    min-height:
-      clamp(
-        510px,
-        63vw,
-        560px
-      );
-  }
-
-
-  .hero__visual img {
-    height: 114%;
-  }
-
-
-  .hero__highlights {
-    width: 42%;
-  }
-
-
-  .hero__social-proof {
-    width: 46%;
-  }
-
-}
-
-
-/* ============================================================
-   TABLET GRANDE
-   900px — 1199px
-   ============================================================ */
-
-@media (min-width: 900px) and (max-width: 1199px) {
-
-  .hero__content {
-    width:
-      min(
-        calc(100% - 72px),
-        1080px
-      );
-
-    padding-top: 42px;
-  }
-
-
-  .hero__title {
-    max-width: 970px;
-
-    font-size:
-      clamp(
-        2.85rem,
-        4.5vw,
-        3.65rem
-      );
-  }
-
-
-  .hero__lead {
-    font-size:
-      clamp(
-        1rem,
-        1.45vw,
-        1.17rem
-      );
-  }
-
-
-  .hero__highlights {
-    width: 41%;
-
-    margin-top: 38px;
-  }
-
-
-  .hero__visual {
-    width: 66%;
-
-    height:
-      clamp(
-        570px,
-        53vw,
-        640px
-      );
-
-    min-height:
-      clamp(
-        570px,
-        53vw,
-        640px
-      );
-
-    margin-right: -4%;
-  }
-
-
-  .hero__visual img {
-    left: 54%;
-
-    height: 116%;
-  }
-
-
-  .hero__social-proof {
-    width: 46%;
-
-    min-width: 350px;
-
-    margin-bottom: 28px;
-  }
-
-
-  .hero__form-card {
-    width: 96%;
-  }
-
-
-  .hero__form-header {
-    padding:
-      30px
-      40px
-      18px;
-  }
-
-
-  .hero__form-body {
-    padding:
-      14px
-      40px
-      32px;
+@media (prefers-reduced-motion: reduce) {
+
+  .hero *,
+  .hero *::before,
+  .hero *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
   }
 
 }
